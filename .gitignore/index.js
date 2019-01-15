@@ -101,6 +101,7 @@ bot.on('message', message =>{
       .addField("/help" , "affiche les command du bot")
       .addField("/clear", "clear les message")
       .addField("/mute", "mute une personne")
+      .addField("/unmute", "bientot dispo")
       .addField("/userstats", "savoirs vos statistiques")
       .setFooter("bot by dhaorix")
       message.channel.sendMessage(help_embed);
