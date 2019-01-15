@@ -125,7 +125,7 @@ bot.on('message', message =>{
         })
     }
 
-    if(message.content.startsWith(prefix + "mutee")) {
+    if(message.content.startsWith(prefix + "mute")) {
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !");
 
         if(message.mentions.users.size === 0) {
