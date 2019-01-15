@@ -15,20 +15,20 @@ bot.on('message', message => {
 });
 
 bot.on('message', message => {
-    if (message.content === 'bonjour') {
+    if (message.content === 'Bonjour') {
       message.reply('hello petit')
     }
 });
 
 bot.on('message', message =>{
-    if(message.content === "tu fais quoi?"){
+    if(message.content === "Tu fais quoi?"){
         message.reply('Je mange des pâtes dans ma pastabox ! :heart:');
         console.log('répond à tfq');
     }
 });
 
 bot.on('message', message =>{
-    if(message.content === "slt"){
+    if(message.content === "Slt"){
         message.reply('yosh la team fornigh pfff gamin');
         console.log('répond à tfq');
     }
@@ -91,14 +91,14 @@ bot.on('guildMemberRemove', member =>{
 })
 
 bot.on('message', message =>{
-    if(message.content === prefix + "aide"){
+    if(message.content === prefix + "help"){
       var help_embed = new Discord.RichEmbed()
       .setColor("#40A497")
       .setTitle("Voici mes commandes d'aide !")
-      .setDescription("je suis un bot tres utile , voici mes commande !")
+      .setDescription("ceci sont tout les command que je dispose !")
       .addField("bonjour", "le bot repond")
-      .addField("/aide" , "affiche les command du bot")
       .addField("ping", "pong")
+      .addField("/help" , "affiche les command du bot")
       .addField("/clear", "clear les message")
       .addField("/mute", "mute une personne")
       .setFooter("bot by dhaorix")
