@@ -64,30 +64,7 @@ bot.on('guildMemberRemove', member =>{
         if (count < 1 || count > 100) return message.channel.send("Veuillez indiquer un nombre entre 1 et 100")
         message.channel.bulkDelete(parseInt(count) + 1)
     }
- 
-    if (args[0].toLowerCase() === prefix + "mute") {
-        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande")
-        let member = message.mentions.members.first()
-        if (!member) return message.channel.send("Membre introuvable")
-        if (member.highestRole.calculatedPosition >= message.member.highestRole.calculatedPosition && message.author.id !== message.guild.ownerID) return message.channel.send("Vous ne pouvez pas mute ce membre")
-        if (member.highestRole.calculatedPosition >= message.guild.me.highestRole.calculatedPosition || member.id === message.guild.ownerID) return message.channel.send("Je ne peux pas mute ce membre")
-        let muterole = message.guild.roles.find(role => role.name === 'Muted')
-        if (muterole) {
-            member.addRole(muterole)
-            message.channel.send(member + ' a été mute :white_check_mark:')
-        }
-        else {
-            message.guild.createRole({name: 'Muted', permissions: 0}).then((role) => {
-                message.guild.channels.filter(channel => channel.type === 'text').forEach(channel => {
-                    channel.overwritePermissions(role, {
-                        SEND_MESSAGES: false
-                    })
-                })
-                member.addRole(role)
-                message.channel.send(member + ' a été mute :white_check_mark:')
-            })
-        }
-    }
+
 })
 
 bot.on('message', message =>{
@@ -101,7 +78,7 @@ bot.on('message', message =>{
       .addField("/help" , "affiche les command du bot")
       .addField("/clear", "clear les message")
       .addField("/mute", "mute une personne")
-      .addField("/unmute", "bientot dispo")
+      .addField("/unmute", "pour enlever une personne mute")
       .addField("/userstats", "savoirs vos statistiques")
       .setFooter("bot by dhaorix")
       message.channel.sendMessage(help_embed);
@@ -128,9 +105,42 @@ bot.on('message', message =>{
       message.reply("Va dans tes message privé ! tu viens de recevoir tes statistique !")
       message.author.send({embed: stast_embed});
       break;
-
-
     }
     
-    
+        if(message.content.startsWith(prefix + "unmute")) {
+        if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !");
+
+        if(message.mentions.users.size === 0) {
+            return message.channel.send("vous devez mentionner un utilistateur");
+        }
+
+        var mute = message.guild.member(message.mentions.users.first());
+        if(!mute) {
+            return message.channel.send("je n'ai pas trouver l'utilisateur ou il n'existe pas !");
+        }
+
+        if(!message.guild.member(bot.user).hasPermission("ADMINISTRATOR")) return message.channel.send("je n'ai pas les permission");
+        message.channel.overwritePermissions(mute, { SEND_MESSAGES: true}).then(member => {
+            message.channel.send(`${mute.user.username} n'est plus mute !`);
+        })
+    }
+
+    if(message.content.startsWith(prefix + "mutee")) {
+        if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !");
+
+        if(message.mentions.users.size === 0) {
+            return message.channel.send("vous devez mentionner un utilistateur");
+        }
+
+        var mute = message.guild.member(message.mentions.users.first());
+        if(!mute) {
+            return message.channel.send("je n'ai pas trouver l'utilisateur ou il n'existe pas !");
+        }
+
+        if(!message.guild.member(bot.user).hasPermission("ADMINISTRATOR")) return message.channel.send("je n'ai pas les permission");
+        message.channel.overwritePermissions(mute, { SEND_MESSAGES: false}).then(member => {
+            message.channel.send(`${mute.user.username} est mute !`);
+        })
+    }
+  
 });
