@@ -101,11 +101,35 @@ bot.on('message', message =>{
       .addField("/help" , "affiche les command du bot")
       .addField("/clear", "clear les message")
       .addField("/mute", "mute une personne")
+      .addField("/userstats", "savoirs vos statistiques")
       .setFooter("bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
     }
 
+      if (!message.content.startsWith(prefix)) return
+
+    var args = message.content.substring(prefix.length).split(" ");
+
+    switch (args[0].toLowerCase()) {
+        case "userstats":
+
+        var userCreateData = message.author.createdAt.toString().split(" ");
+        var msgauthor = message.author.id;
+
+        var stast_embed = new Discord.RichEmbed()
+
+      .setColor("#40A497")
+      .setTitle(`Stastistiques de l'utilisateur : ${message.author.username}`)
+      .addField(`ID de l'utilisateur :id:`, msgauthor, true)
+      .addField("Date de création de l'utilisateur :", userCreateData[1] + ' ' + userCreateData[2] + ' ' + userCreateData[3])
+      .setThumbnail(message.author.avatarURL)
+      message.reply("Va dans tes message privé ! tu viens de recevoir tes statistique !")
+      message.author.send({embed: stast_embed});
+      break;
+
+
+    }
     
     
 });
