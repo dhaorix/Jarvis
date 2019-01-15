@@ -3,6 +3,7 @@ const bot = new Discord.Client()
 var prefix = "/"
 
 bot.on('ready', function () {
+  bot.user.setPresence({ game: { name: `/help | xenolda`, type: 0} });
   console.log("Je suis connecté !")
 });
 
