@@ -41,7 +41,7 @@ bot.on('guildMemberAdd', member =>{
         .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name)
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
     member.guild.channels.get('410498158246887434').send(embed)
-    member.addRole('<@&410494803680428042>')
+    member.addRole('410494803680428042')
  
 });
 
