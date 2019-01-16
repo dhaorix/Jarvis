@@ -17,20 +17,13 @@ bot.on('message', message => {
 
 bot.on('message', message => {
     if (message.content === 'Bonjour') {
-      message.reply('hello petit')
+      message.reply('yosh la team fornigh pfff gamin')
     }
 });
 
 bot.on('message', message =>{
     if(message.content === "Tu fais quoi?"){
         message.reply('Je mange des pâtes dans ma pastabox ! :heart:');
-        console.log('répond à tfq');
-    }
-});
-
-bot.on('message', message =>{
-    if(message.content === "Slt"){
-        message.reply('yosh la team fornigh pfff gamin');
         console.log('répond à tfq');
     }
 });
