@@ -37,6 +37,7 @@ bot.on('message', message =>{
  
 bot.on('guildMemberAdd', member =>{
     let embed = new Discord.RichEmbed()
+        .setColor("#470A49")
         .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name)
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
     member.guild.channels.get('410498158246887434').send(embed)
@@ -46,6 +47,7 @@ bot.on('guildMemberAdd', member =>{
 
 bot.on('guildMemberRemove', member =>{
     let embed = new Discord.RichEmbed()
+        .setColor("#470A49")
         .setDescription(':cry: **' + member.user.username + '** a quitté ' + member.guild.name)
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
     member.guild.channels.get('410498158246887434').send(embed)
