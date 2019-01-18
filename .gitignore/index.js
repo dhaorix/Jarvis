@@ -165,4 +165,111 @@ bot.on('message', message =>{
 
     }
   
+      if(message.content.startsWith(prefix + "kick")){
+
+        if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send("Vous n'avez pas la permission!");
+
+    
+
+        if(message.mentions.users.size === 0) {
+
+            return message.channel.send("Vous devez metionner un utilisaeur")
+
+        }
+
+        var kick = message.guild.member(message.mentions.users.first());
+
+        if(!kick) {
+
+            return message.channel.send("Je ne sais pas si l'utilisateur existe :/")
+
+        }
+
+    
+
+        if(message.guild.member(client.user).hasPermission("KICK_MEMBERS")) {
+
+            return message.channel.send("Je n'ai pas la permission pour kick");
+
+        }
+
+    
+
+        kick.kick().then(member => {
+
+            message.channel.send(`${member.user.username} est kick pas ${message.author.username}`);
+
+        });
+
+    }
+
+
+
+    if(message.content.startsWith(prefix + "ban")) {
+
+        if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("Vous n'avez pas la perission");
+
+
+
+        if(message.mentions.users.size === 0) {
+
+            return message.channel.send("Vous devez mentionner un utilisateur");
+
+        }
+
+
+
+        var ban = message.guild.member(message.mentions.users.first());
+
+        if(!ban) {
+
+            return message.channel.send("Je ne sais pas si l'utilisateur existe");
+
+        }
+
+
+
+        if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) {
+
+            return message.channel.send("Je n'ai pas la permission pour ban");
+
+        }
+
+        ban.ban().then(member => {
+
+            message.channel.send(`${member.user.username} est ban par ${message.author.username} !`)
+
+        });
+
+        
+
+    }
+
+    if(message.content === prefix + "moderation") {
+
+        var mod_embed = new Discord.RichEmbed()
+  
+        .setColor('RANDOM')
+  
+        .setTitle(`:tools: Voici mes commandes modérations !`)
+  
+        .setThumbnail(message.author.avatarURL)
+  
+        .addField("/kick <@user>", "Kick l'utilisateur !")
+  
+        .addField("/ban <@user>", "Ban l'utilisateur !")
+  
+        .addField("/clear nombre", "Supprime le nombre de messages indiqué")
+  
+        .addField("/mute <@user>", "Mute l'utilisateur mentionné")
+  
+        .addField("/unmute <@user>", "Unmute l'utilisateur mentionné")
+  
+        .setFooter("Commande modération - bot by dhaorix")
+  
+        .setTimestamp()
+  
+        message.channel.send(mod_embed)
+
+  
 });
