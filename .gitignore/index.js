@@ -144,11 +144,13 @@ bot.on('message', message =>{
 
         .setColor("#40A497")
 
-        .setTitle("Voici les informations sur moi et le serveur !")
+        .setTitle("Voici les informations sur serveur !")
 
-        .addField(" :robot: Nom :", `${bot.user.tag}`, true)
+        .addField("Nom du discord :", message.guild.name)
 
-        .addField("ID :id: ", `${bot.user.id}`)
+        .addField("Date de création :", message.guild.createdAt)
+
+        .addField("tu as rejoind le :", message.member.joinedAt)
 
         .addField("Nombre de membres", message.guild.members.size)
 
