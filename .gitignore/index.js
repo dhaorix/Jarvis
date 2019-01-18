@@ -74,7 +74,7 @@ bot.on('message', message =>{
       .addField("/moderation", "commande de moderation")
       .addField("/userstats", "savoirs vos statistiques")
       .addField("/info", "donne les info de votre server")
-      .setFooter("bot by dhaorix")
+      .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
     }
