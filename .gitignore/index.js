@@ -251,7 +251,7 @@ bot.on('message', message =>{
   
         .setColor('RANDOM')
   
-        .setTitle(`:tools: Voici mes commandes modérations !`)
+        .setTitle(`Voici mes commandes modérations !`)
   
         .setThumbnail(message.author.avatarURL)
   
