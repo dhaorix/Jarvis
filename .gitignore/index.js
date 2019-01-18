@@ -76,6 +76,7 @@ bot.on('message', message =>{
       .addField("/mute", "mute une personne")
       .addField("/unmute", "pour enlever une personne mute")
       .addField("/userstats", "savoirs vos statistiques")
+      .addField("/info", "donne les info sur le bot et votre server")
       .setFooter("bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
@@ -137,6 +138,31 @@ bot.on('message', message =>{
         message.channel.overwritePermissions(mute, { SEND_MESSAGES: false}).then(member => {
             message.channel.send(`${mute.user.username} est mute !`);
         })
+    }
+  
+  
+    if(message.content === prefix + "info") {
+
+        var info_embed = new Discord.RichEmbed()
+
+        .setColor("#40A497")
+
+        .setTitle("Voici les informations sur moi et le serveur !")
+
+        .addField(" :robot: Nom :", `${bot.user.tag}`, true)
+
+        .addField("ID :id: ", `${bot.user.id}`)
+
+        .addField("Nombre de membres", message.guild.members.size)
+
+        .addField("Nombre de catégories et de salons", message.guild.channels.size)
+
+        .setFooter("bot by dhaorix")
+
+        message.channel.sendMessage(info_embed)
+
+        console.log("Un utilisateur a effectué la commande d'info !")
+
     }
   
 });
