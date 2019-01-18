@@ -284,7 +284,7 @@ bot.on('message', message =>{
   
         .addField("ping", "pong")
   
-        .addField("*8ball", "arrive")
+        .addField("/8ball", "arrive")
   
         .setFooter("Commande fun - bot by dhaorix")
   
