@@ -270,6 +270,8 @@ bot.on('message', message =>{
         .setTimestamp()
   
         message.channel.send(mod_embed)
+      
+    }
 
   
 });
