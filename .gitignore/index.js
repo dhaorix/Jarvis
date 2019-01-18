@@ -45,11 +45,7 @@ bot.on('message', message => {
            .addField("XP:" , `${xpfinal[1]} xp`)
            .setFooter("XP | bot by dhaorix")  
         message.channel.send({embed: xp_embed});
-        
-
-    
-
-
+       
 }}})
 
 bot.on('message', message => {
