@@ -247,7 +247,7 @@ bot.on('message', message =>{
 
         var mod_embed = new Discord.RichEmbed()
   
-        .setColor('RANDOM')
+        .setColor('#470A49')
   
         .setTitle(`Voici mes commandes modérations !`)
   
