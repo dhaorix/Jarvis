@@ -144,7 +144,7 @@ bot.on('message', message =>{
 
         .setColor("#40A497")
 
-        .setTitle("Voici les informations sur serveur !")
+        .setTitle("Voici les informations du serveur !")
 
         .addField("Nom du discord :", message.guild.name)
 
@@ -156,7 +156,7 @@ bot.on('message', message =>{
 
         .addField("Nombre de catégories et de salons", message.guild.channels.size)
 
-        .setFooter("bot by dhaorix")
+        .setFooter("info | bot by dhaorix")
 
         message.channel.sendMessage(info_embed)
 
