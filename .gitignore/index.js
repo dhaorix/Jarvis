@@ -69,9 +69,8 @@ bot.on('message', message =>{
       .setColor("#40A497")
       .setTitle("Voici mes commandes d'aide !")
       .setDescription("ceci sont tout les command que je dispose !")
-      .addField("bonjour", "le bot repond")
-      .addField("ping", "pong")
       .addField("/help" , "affiche les command du bot")
+      .addField("/fun", "commande pour le fun")
       .addField("/moderation", "commande de moderation")
       .addField("/userstats", "savoirs vos statistiques")
       .addField("/info", "donne les info sur le bot et votre server")
@@ -269,6 +268,30 @@ bot.on('message', message =>{
   
         message.channel.send(mod_embed)
       
+    }
+
+      if(message.content === prefix + "fun") {
+
+        var fun_embed = new Discord.RichEmbed()
+  
+        .setColor('#40A497')
+  
+        .setTitle(`Voici mes commandes amusantes !`)
+  
+        .setThumbnail(message.author.avatarURL)
+  
+        .addField("Bonjour", "Le bot répond !")
+  
+        .addField("ping", "pong")
+  
+        .addField("*8ball", "arrive")
+  
+        .setFooter("Commande fun - bot by dhaorix")
+  
+        .setTimestamp()
+  
+        message.channel.send(fun_embed);
+  
     }
 
   
