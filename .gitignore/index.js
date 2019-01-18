@@ -315,7 +315,7 @@ bot.on('message', message =>{
       
     }
 
-      if(message.content === prefix + "fun") {
+    if(message.content === prefix + "fun") {
 
         var fun_embed = new Discord.RichEmbed()
   
