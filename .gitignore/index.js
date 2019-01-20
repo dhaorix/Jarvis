@@ -142,25 +142,15 @@ bot.on('message', message =>{
     if(message.content === prefix + "info") {
 
         var info_embed = new Discord.RichEmbed()
-
         .setColor("#40A497")
-
         .setTitle("Voici les informations du serveur !")
-
         .addField("Nom du discord :", message.guild.name)
-
         .addField("Date de création :", message.guild.createdAt)
-
         .addField("tu as rejoind le :", message.member.joinedAt)
-
         .addField("Nombre de membres", message.guild.members.size)
-
         .addField("Nombre de catégories et de salons", message.guild.channels.size)
-
         .setFooter("info | bot by dhaorix")
-
         message.channel.sendMessage(info_embed)
-
         console.log("Un utilisateur a effectué la commande d'info !")
 
     }
@@ -275,26 +265,17 @@ bot.on('message', message =>{
 
     if(message.content === prefix + "fun") {
 
-        var fun_embed = new Discord.RichEmbed()
-  
-        .setColor('#40A497')
-  
+        var fun_embed = new Discord.RichEmbed()  
+        .setColor('#40A497')  
         .setTitle(`Voici mes commandes amusantes !`)
-  
         .setThumbnail(message.author.avatarURL)
-  
-        .addField("Bonjour", "Le bot répond !")
-  
-        .addField("ping", "pong")
-        
+        .addField("Bonjour", "Le bot répond !") 
+        .addField("ping", "pong"
         .addField("/xp", "voir votre xp")
-  
         .addField("/8ball", "arrive")
-  
         .setFooter("Commande fun - bot by dhaorix")
-  
         .setTimestamp()
-  
+ 
         message.channel.send(fun_embed);
   
     }
