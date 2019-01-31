@@ -264,21 +264,18 @@ bot.on('message', message =>{
     }
 
     if(message.content === prefix + "fun") {
-
-        var fun_embed = new Discord.RichEmbed()  
-        .setColor('#40A497')  
+        var fun_embed = new Discord.RichEmbed()
+        .setColor('#40A497')
         .setTitle(`Voici mes commandes amusantes !`)
         .setThumbnail(message.author.avatarURL)
-        .addField("Bonjour", "Le bot répond !") 
-        .addField("ping", "pong"
+        .addField("Bonjour", "Le bot répond !")
+        .addField("ping", "pong")
         .addField("/xp", "voir votre xp")
         .addField("/8ball", "arrive")
         .setFooter("Commande fun - bot by dhaorix")
         .setTimestamp()
- 
         message.channel.send(fun_embed);
-  
+
     }
 
-  
 });
