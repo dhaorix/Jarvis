@@ -224,7 +224,7 @@ bot.on('message', message =>{
 
     
 
-        if(message.guild.member(client.user).hasPermission("KICK_MEMBERS")) {
+        if(message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
 
             return message.channel.send("Je n'ai pas la permission pour kick");
 
@@ -234,7 +234,7 @@ bot.on('message', message =>{
 
         kick.kick().then(member => {
 
-            message.channel.send(`${member.user.username} est kick pas ${message.author.username}`);
+            message.channel.send(`${member.user.username} est kick par ${message.author.username}`);
 
         });
 
@@ -266,7 +266,7 @@ bot.on('message', message =>{
 
 
 
-        if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) {
+        if(!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
 
             return message.channel.send("Je n'ai pas la permission pour ban");
 
