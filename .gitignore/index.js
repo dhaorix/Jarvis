@@ -124,7 +124,7 @@ bot.on('message', message =>{
         .setDescription(":8ball: xenolda")
         .addField("Question", tte)
         .addField("Réponse", reponse)
-    message.channel.sendEmbed(ball_embed)
+      message.channel.sendEmbed(ball_embed)
     
     
     }
