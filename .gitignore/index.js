@@ -139,7 +139,8 @@ bot.on('message', message =>{
             "lol",
             "nop",
             "yep",
-            "||blc frere||"
+            "||blc frere||",
+            "j'repond pas au kikoo de fornith"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
