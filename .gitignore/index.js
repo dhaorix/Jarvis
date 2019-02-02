@@ -310,7 +310,6 @@ bot.on('message', message =>{
         .setFooter("Commande fun - bot by dhaorix")
         .setTimestamp()
         message.channel.send(fun_embed);
-
     }
 
 });
