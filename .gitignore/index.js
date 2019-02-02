@@ -140,7 +140,13 @@ bot.on('message', message =>{
             "nop",
             "yep",
             "||blc frere||",
-            "j'repond pas au kikoo de fornith"
+            "j'repond pas au kikoo de fornith",
+            "ok mais non",
+            "pas besoin",
+            "mouai",
+            "moi j'aime dhaorix",
+            "trop raison toi ;)",
+            "vive lucifer, vivre dhaorix :smiling_imp:"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
