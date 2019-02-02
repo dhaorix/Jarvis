@@ -134,7 +134,12 @@ bot.on('message', message =>{
             "Mais si c'est possible avec la carte kiwi !",
             "alors la !",
             "mais non tes bete toi",
-            "t'aime l'orthographe ? car tu devrais prendre des cours !"
+            "t'aime l'orthographe ? car tu devrais prendre des cours !",
+            "je suis malade",
+            "lol",
+            "nop",
+            "yep",
+            "||blc frere||"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
