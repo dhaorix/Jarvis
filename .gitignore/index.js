@@ -128,7 +128,12 @@ bot.on('message', message =>{
             "si tu veux...",
             "sûrment pas !",
             "fait voir un peut :joy:",
-            "azy arrete de poser des quetion toi !"
+            "azy arrete de poser des quetion toi !",
+            "ce que tu veux !",
+            "je prèfer répondre a une autre question",
+            "Mais si c'est possible avec la carte kiwi !",
+            "alors la !",
+            "mais non tes bete toi"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
