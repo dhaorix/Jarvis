@@ -123,11 +123,7 @@ bot.on('message', message =>{
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
-        var ball_embed = new Discord.RichEmbed()
-        .setDescription(":8ball: xenolda")
-        .addField("Question", tte)
-        .addField("Réponse", reponse)
-     message.channel.sendEmbed(ball_embed)
+        message.channel.send(message.reply(reponse))
     
     
     }
