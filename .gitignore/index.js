@@ -133,7 +133,8 @@ bot.on('message', message =>{
             "je prèfer répondre a une autre question",
             "Mais si c'est possible avec la carte kiwi !",
             "alors la !",
-            "mais non tes bete toi"
+            "mais non tes bete toi",
+            "t'aime l'orthographe ? car tu devrais prendre des cours !"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
