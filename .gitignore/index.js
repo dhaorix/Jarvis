@@ -92,6 +92,11 @@ bot.on('message', message =>{
     var args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0].toLowerCase()) {
+        
+        case"serverlist":
+        message.channel.send(bot.guilds.map(r => r.name + ` | **${r.memberCount}** membres`))
+        break;
+        
         case "userstats":
         var userCreateData = message.author.createdAt.toString().split(" ");
         var msgauthor = message.author.id;
