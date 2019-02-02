@@ -105,11 +105,11 @@ bot.on('message', message =>{
       message.author.send({embed: stast_embed});
       break;
         
-        case "8ball":
+        case "xenolda":
         let args = message.content.split(" ").slice(1);
         let tte = args.join(" ")
         if (!tte){
-            return message.reply("Merci de posser une question :8ball:")
+            return message.reply("Merci de poser une question :8ball:")
         };
 
         var replys = [
@@ -121,7 +121,7 @@ bot.on('message', message =>{
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
         var ball_embed = new Discord.RichEmbed()
-        .setDescription(":8ball: 8ball")
+        .setDescription(":8ball: xenolda")
         .addField("Question", tte)
         .addField("Réponse", reponse)
     message.channel.sendEmbed(ball_embed)
@@ -298,7 +298,7 @@ bot.on('message', message =>{
         .addField("Bonjour", "Le bot répond !")
         .addField("ping", "pong")
         .addField("/xp", "voir votre xp")
-        .addField("/8ball", "arrive")
+        .addField("/xenolda question?", "pose ta question au bot")
         .setFooter("Commande fun - bot by dhaorix")
         .setTimestamp()
         message.channel.send(fun_embed);
