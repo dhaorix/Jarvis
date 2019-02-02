@@ -116,7 +116,10 @@ bot.on('message', message =>{
             "oui",
             "non",
             "peut être",
-            "je sais pas"
+            "je sais pas",
+            "hahahaha mdr lui",
+            "demande a mon maître",
+            "sa peut dépendre de toi :)"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
