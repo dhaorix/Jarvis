@@ -22,6 +22,12 @@ bot.on('message', message => {
     }
 });
 
+bot.on('message', message => {
+    if (message.content === prefix + "invite") {
+     message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=2097176631 " )
+    }
+});
+
 bot.on('message', message =>{
     if(message.content === "Tu fais quoi?"){
         message.reply('Je mange des pâtes dans ma pastabox ! :heart:');
@@ -75,6 +81,7 @@ bot.on('message', message =>{
       .addField("/moderation", "commande de moderation")
       .addField("/userstats", "savoirs vos statistiques")
       .addField("/info", "donne les info de votre server")
+      .addField("/invite", "lien pour m'inviter")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
@@ -86,12 +93,9 @@ bot.on('message', message =>{
 
     switch (args[0].toLowerCase()) {
         case "userstats":
-
         var userCreateData = message.author.createdAt.toString().split(" ");
         var msgauthor = message.author.id;
-
         var stast_embed = new Discord.RichEmbed()
-
       .setColor("#40A497")
       .setTitle(`Stastistiques de l'utilisateur : ${message.author.username}`)
       .addField(`ID de l'utilisateur :id:`, msgauthor, true)
@@ -100,6 +104,29 @@ bot.on('message', message =>{
       message.reply("Va dans tes message privé ! tu viens de recevoir tes statistique !")
       message.author.send({embed: stast_embed});
       break;
+        
+        case "8ball":
+        let args = message.content.split(" ").slice(1);
+        let tte = args.join(" ")
+        if (!tte){
+            return message.reply("Merci de posser une question :8ball:")
+        };
+
+        var replys = [
+            "oui",
+            "non",
+            "peut être",
+            "je sais pas"
+        ];
+
+        let reponse = (replys[Math.floor(Math.random() * replys.length)])
+        var ball_embed = new Discord.RichEmbed()
+        .setDescription(":8ball: 8ball")
+        .addField("Question", tte)
+        .addField("Réponse", reponse)
+    message.channel.sendEmbed(ball_embed)
+    
+    
     }
     
         if(message.content.startsWith(prefix + "unmute")) {
