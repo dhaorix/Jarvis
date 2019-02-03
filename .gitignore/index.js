@@ -82,6 +82,7 @@ bot.on('message', message =>{
       .addField("/userstats", "savoirs vos statistiques")
       .addField("/info", "donne les info de votre server")
       .addField("/invite", "lien pour m'inviter")
+      .addField("/serverlist", "list de tout les server")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
@@ -146,7 +147,13 @@ bot.on('message', message =>{
             "mouai",
             "moi j'aime dhaorix",
             "trop raison toi ;)",
-            "vive lucifer, vivre dhaorix :smiling_imp:"
+            "vive lucifer, vivre dhaorix :smiling_imp:",
+            "ecoute je m'en fou ok",
+            "je suis mechant mais je vais changer",
+            "j'aime tlm moi",
+            "ouuiiiiiii",
+            "dac",
+            "hum"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
