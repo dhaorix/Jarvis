@@ -353,8 +353,8 @@ bot.on('message', message =>{
                .setTimestamp()
             message.guild.channels.find("name", "sondage").sendEmbed(sondage_embed)
             .then(function (message) {
-                message.react(":white_check_mark:")
-                message.react(":x:")
+                message.react("✅")
+                message.react("✖")
             }).catch(function(){
             });
         }else{
