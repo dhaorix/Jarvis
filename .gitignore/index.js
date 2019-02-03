@@ -154,7 +154,12 @@ bot.on('message', message =>{
             "j'aime tlm moi",
             "ouuiiiiiii",
             "dac",
-            "hum"
+            "hum",
+            "arrete ou je te hack",
+            "fait pas le malin",
+            "alors toi tes mon pref",
+            ":joy:",
+            "hehehe , a voir..."
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
