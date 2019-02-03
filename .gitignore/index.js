@@ -83,6 +83,7 @@ bot.on('message', message =>{
       .addField("/info", "donne les info de votre server")
       .addField("/invite", "lien pour m'inviter")
       .addField("/serverlist", "list de tout les server")
+      .addField("/sondage", "faire un sondage")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
@@ -336,5 +337,29 @@ bot.on('message', message =>{
         .setTimestamp()
         message.channel.send(fun_embed);
     }
+  
+      if(message.content.startsWith(prefix + "sondage")) {
+        if(message.author.id == "278647337121873930"){
+            let args = message.content.split(" ").slice(1);
+            let thingToEcho = args.join(" ")
+            if (!thingToEcho){
+                return message.reply("Merci de poser une question :grin:")
+            };
+            var sondage_embed = new Discord.RichEmbed()
+               .setColor('#40A497')
+               .setDescription("Sondage")
+               .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
+               .setFooter("Sondage | bot by dhaorix")
+               .setTimestamp()
+            message.guild.channels.find("name", "sondage").sendEmbed(sondage_embed)
+            .then(function (message) {
+                message.react(":white_check_mark:")
+                message.react(":x:")
+            }).catch(function(){
+            });
+        }else{
+            return message.reply("Tu n'as pas la permission")
+    }}
+
 
 });
