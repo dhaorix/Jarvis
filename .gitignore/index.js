@@ -344,7 +344,7 @@ bot.on('message', message =>{
     }
   
       if(message.content.startsWith(prefix + "sondage")) {
-        if(message.author.id == "278647337121873930"){
+            if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             if (!thingToEcho){
@@ -362,9 +362,4 @@ bot.on('message', message =>{
                 message.react("✖")
             }).catch(function(){
             });
-        }else{
-            return message.reply("Tu n'as pas la permission")
-    }}
-
-
-});
+    }});
