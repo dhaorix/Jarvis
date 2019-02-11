@@ -3,7 +3,7 @@ const bot = new Discord.Client()
 var prefix = "/"
 
 bot.on('ready', function () {
-  bot.user.setPresence({ game: { name: `/help | xenolda`, type: 0} });
+  bot.user.setPresence({ game: { name: `/help | server: ${bot.guilds.size}`, type: 0} });
   console.log("Je suis connecté !")
 });
 
@@ -159,7 +159,16 @@ bot.on('message', message =>{
             "fait pas le malin",
             "alors toi tes mon pref",
             ":joy:",
-            "hehehe , a voir..."
+            "hehehe , a voir...",
+            "trololol pas compris",
+            "hrmmmm",
+            "yes mec",
+            "bug",
+            "bah bonjour on peut commencer par sa nan?",
+            "clap",
+            "mais!!! tu me soul",
+            "je suis calme",
+            "grrrrr, nan rien"
         ];
 
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
