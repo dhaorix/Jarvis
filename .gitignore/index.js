@@ -366,6 +366,7 @@ bot.on('message', message =>{
                .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
                .setFooter("Sondage | bot by dhaorix")
                .setTimestamp()
+            message.delete().catch(O_o=>{});  
             message.channel.sendMessage(sondage_embed)
             .then(function (message) {
                 message.react("✅")
