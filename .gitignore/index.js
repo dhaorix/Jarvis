@@ -84,6 +84,7 @@ bot.on('message', message =>{
       .addField("/invite", "lien pour m'inviter")
       .addField("/serverlist", "list de tout les server")
       .addField("/sondage", "faire un sondage")
+      .addField("/report @Xenolda <message>, "report dans un salon report")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
@@ -371,4 +372,30 @@ bot.on('message', message =>{
                 message.react("✖")
             }).catch(function(){
             });
+        
+        if(message.content.startsWith(prefix + "report")) {
+        let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if (!rUser) return message.channel.send("mention moi puis met ton message")
+        let reason = args.join(" ").slice(22);
+
+        let report_embed = new Discord.RichEmbed()
+        .setColor('#40A497')
+        .setDescription("Report")
+        .setThumbnail(message.author.avatarURL)
+        .addField("Report User", `${rUser} son ID: ${rUser.id}`)
+        .addField("Report de", `${message.author}, son ID: ${rUser.id}`)
+        .addField("Channel", message.channel)
+        .addField("Time", message.createdAt)
+        .addField("Raison", reason);
+
+        let reportschannel = message.guild.channels.find(`name`, "report");
+        if(!reportschannel) return message.channel.send("Désoler, je ne trouve pas le salon report");
+
+        message.delete().catch(O_o=>{});
+        reportschannel.send(report_embed);
+
+        return;
+    }
+        
+        
     }});
