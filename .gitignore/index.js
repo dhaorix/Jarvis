@@ -373,6 +373,7 @@ bot.on('message', message =>{
                 message.react("✖")
             }).catch(function(){
             });
+      }
         
         if(message.content.startsWith(prefix + "report")) {
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -397,6 +398,5 @@ bot.on('message', message =>{
 
         return;
     }
-        
-        
-    }});
+          
+    });
