@@ -84,7 +84,7 @@ bot.on('message', message =>{
       .addField("/invite", "lien pour m'inviter")
       .addField("/serverlist", "list de tout les server")
       .addField("/sondage", "faire un sondage")
-      .addField("/report @Xenolda <message>, "report dans un salon report")
+      .addField("/report @Xenolda <message>", "report dans un salon report")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
       console.log("une personne utilise une command")
