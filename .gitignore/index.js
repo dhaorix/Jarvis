@@ -17,6 +17,13 @@ bot.on('message', message => {
 });
 
 bot.on('message', message => {
+    if(message.content === "#teammalade") {
+        message.reply('mdrr le gros malade')
+    }
+});
+
+
+bot.on('message', message => {
     if (message.content === 'Bonjour') {
       message.reply('yosh la team fornigh pfff gamin')
     }
