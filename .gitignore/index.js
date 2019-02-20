@@ -120,6 +120,25 @@ bot.on('message', message =>{
       message.author.send({embed: stast_embed});
       break;
         
+         case "bar":
+
+      var replys = [
+          "whisky",
+          ":beer: bière",
+          ":champagne: champagne",
+          ":wine_glass: vin",
+      ];
+
+
+      let repons = (replys[Math.floor(Math.random() * replys.length)])
+      var bar_embed = new Discord.RichEmbed()
+      .setColor('#40A497')
+      .setTitle("bar")
+      .addField("tu as bue un verre de ", repons)
+      .setFooter("bar | bot by dhaorix")
+      message.channel.sendMessage(bar_embed) 
+      break; 
+        
         case "xenolda":
         let args = message.content.split(" ").slice(1);
         let tte = args.join(" ")
@@ -354,6 +373,7 @@ bot.on('message', message =>{
         .addField("Bonjour", "Le bot répond !")
         .addField("ping", "pong")
         .addField("/xp", "voir votre xp")
+        .addField("/bar", "boire une boisson")
         .addField("/xenolda question?", "pose ta question au bot")
         .setFooter("Commande fun - bot by dhaorix")
         .setTimestamp()
