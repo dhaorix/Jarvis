@@ -17,13 +17,6 @@ bot.on('message', message => {
 });
 
 bot.on('message', message => {
-    if(message.content === "#teammalade") {
-        message.reply('mdrr le gros malade')
-    }
-});
-
-
-bot.on('message', message => {
     if (message.content === 'Bonjour') {
       message.reply('yosh la team fornigh pfff gamin')
     }
@@ -31,7 +24,7 @@ bot.on('message', message => {
 
 bot.on('message', message => {
     if (message.content === prefix + "invite") {
-     message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=2097176631 " )
+     message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8" )
     }
 });
 
