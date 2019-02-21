@@ -120,6 +120,7 @@ bot.on('message', message =>{
           ":beer: bière",
           ":champagne: champagne",
           ":wine_glass: vin",
+          "vodka",
       ];
 
 
