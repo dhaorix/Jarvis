@@ -12,7 +12,7 @@ bot.login(process.env.TOKEN)
 
 bot.on('message', message => {
     if (message.content === 'ping') {
-      message.reply('ta cru toi !')
+      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + ' ms `');
     }
 });
 
@@ -129,6 +129,7 @@ bot.on('message', message =>{
       .setColor('#40A497')
       .setTitle("bar")
       .addField("tu as bue un verre de ", repons)
+      .addField("tu as reçu ", ` + 0,0${message.createdTimestamp - Date.now()}g d'alcool`)
       .setFooter("bar | bot by dhaorix")
       message.channel.sendMessage(bar_embed) 
       break; 
@@ -365,7 +366,7 @@ bot.on('message', message =>{
         .setTitle(`Voici mes commandes amusantes !`)
         .setThumbnail(message.author.avatarURL)
         .addField("Bonjour", "Le bot répond !")
-        .addField("ping", "pong")
+        .addField("/ping", "pong")
         .addField("/xp", "voir votre xp")
         .addField("/bar", "boire une boisson")
         .addField("/xenolda question?", "pose ta question au bot")
