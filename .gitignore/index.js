@@ -131,7 +131,7 @@ bot.on('message', message =>{
       .setColor('#40A497')
       .setTitle("bar")
       .addField("tu as bue un verre de ", repons)
-      .addField("tu as reçu ", ` + 0,0${message.createdTimestamp - Date.now()}g d'alcool`)
+      .addField("tu as reçu ", `${message.createdTimestamp - Date.now()}mg d'alcool`)
       .setFooter("bar | bot by dhaorix")
       message.channel.sendMessage(bar_embed) 
       break; 
