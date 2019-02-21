@@ -116,11 +116,13 @@ bot.on('message', message =>{
          case "bar":
 
       var replys = [
-          "whisky",
+          ":baby_bottle:whisky",
           ":beer: bière",
           ":champagne: champagne",
           ":wine_glass: vin",
           "vodka",
+          ":cocktail: cocktail",
+          ":tropical_drink: tropical",
       ];
 
 
