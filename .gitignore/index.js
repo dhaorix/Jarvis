@@ -9,12 +9,12 @@ bot.on('ready', function () {
 
 bot.login(process.env.TOKEN)
 
-
 bot.on('message', message => {
-    if (message.content === 'ping') {
-      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + ' ms `');
+    if(message.content === 'Ping') {
+     message.channel.sendMessage('ta cru toi :joy:');
     }
 });
+
 
 bot.on('message', message => {
     if (message.content === 'Bonjour') {
@@ -131,7 +131,7 @@ bot.on('message', message =>{
       .setColor('#40A497')
       .setTitle("bar")
       .addField("tu as bue un verre de ", repons)
-      .addField("tu as reçu ", `${message.createdTimestamp - Date.now()}mg d'alcool`)
+      .addField("tu as reçu ", `+ 0,0${message.createdTimestamp - Date.now()}g d'alcool`)
       .setFooter("bar | bot by dhaorix")
       message.channel.sendMessage(bar_embed) 
       break; 
