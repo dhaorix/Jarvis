@@ -125,14 +125,17 @@ bot.on('message', message =>{
           ":cocktail: cocktail",
           ":tropical_drink: tropical",
       ];
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
 
-
+      let nombb = (getRandomInt(100))
       let repons = (replys[Math.floor(Math.random() * replys.length)])
       var bar_embed = new Discord.RichEmbed()
       .setColor('#40A497')
       .setTitle("bar")
       .addField("tu as bu un verre de ", repons)
-      .addField("tu as reçu ", `+ ${message.createdTimestamp - Date.now()}mg d'alcool`)
+      .addField("tu as reçu ", `+ 0,${nombb}mg d'alcool`)
       .setFooter("bar | bot by dhaorix")
       message.channel.sendMessage(bar_embed) 
       break; 
