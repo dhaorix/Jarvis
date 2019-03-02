@@ -84,7 +84,8 @@ bot.on('message', message =>{
       .addField("/info", "donne les info de votre server")
       .addField("/invite", "lien pour m'inviter")
       .addField("/serverlist", "list de tout les server")
-      .addField("/sondage", "faire un sondage")
+      .addField("/sondage1", "sondage oui ou non")
+      .addField("/sondage2", "sondage A ou B")
       .addField("/report @Xenolda <message>", "report dans un salon report")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
@@ -381,7 +382,7 @@ bot.on('message', message =>{
         message.channel.send(fun_embed);
     }
   
-      if(message.content.startsWith(prefix + "sondage")) {
+      if(message.content.startsWith(prefix + "sondage1")) {
             if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
@@ -426,5 +427,47 @@ bot.on('message', message =>{
 
         return;
     }
+  
+        if(message.content.startsWith(prefix + "sondage2")) {
+
+        if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
+
+        let args = message.content.split(" ").slice(1);
+
+        let thingToEcho = args.join(" ")
+
+        if (!thingToEcho){
+
+            return message.reply("Merci de poser une question :grin:")
+
+        };
+
+        var sondage_embed = new Discord.RichEmbed()
+
+           .setColor('#40A497')
+
+           .setDescription("Sondage")
+
+           .addField(thingToEcho, "Répondre avec :a: ou :b:")
+
+           .setFooter("Sondage | bot by dhaorix")
+
+           .setTimestamp()
+
+        message.delete().catch(O_o=>{});  
+
+        message.channel.sendMessage(sondage_embed)
+
+        .then(function (message) {
+
+            message.react("🅰")
+
+            message.react("🅱")
+
+        }).catch(function(){
+
+        });
+
+}
           
     });
