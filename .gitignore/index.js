@@ -806,5 +806,24 @@ bot.on('message', message =>{
         }
     }
 
-
+      if(message.content.startsWith(prefix + "listmcpe")) {
+        var mcpe_embed = new Discord.RichEmbed()
+        .setColor('#40A497')
+        .setTitle("List de serveur mcpe FR ouvert")
+        .addField("Teracube", "Ip: cube.mcpe.eu Port: 19144 ")
+        .addField("Imsonnia", "Ip: play.imsonniape.eu Port: 19132")
+        .addField("Overblast epsilon", "Ip: overblast.serv-mc.eu Port: 19144")
+        .addField("Kryptonium", "Ip: play.kryptonium.tk Port: 10097")
+        .addField("Histeria", "Ip: srv2.secure-heberge.com Port: 10736")
+        .addField("NetworkBe", "Ip: networkbe.mcpe.eu Port: 19132")
+        .addField("CookieBuild", "Ip: pe.cookie-build.com Port: 19132")
+        .addField("Gladiators", "Ip: play-gladiators.fr Port: 19132")
+        .addField("Nawastia", "Ip: nawa.mcpe.eu Port: 19145")
+        .addField("Skytaria", "Ip: skytaria.tk Port: 19135")
+        .addField("Astoria Rp", "Ip: astoria.pocket.pe Port: 22915")
+        .addField("Futonium", 'Ip: futonium.tk Port: 19160')
+        .addField("Volcania", "Ip: volcania.ml Port: 19132")
+        .setFooter("page 1 sur 2 | bot by dhaorix")
+     message.channel.sendMessage(mcpe_embed)
+  
 });
