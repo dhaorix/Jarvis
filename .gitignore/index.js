@@ -824,6 +824,7 @@ bot.on('message', message =>{
         .addField("Futonium", 'Ip: futonium.tk Port: 19160')
         .addField("Volcania", "Ip: volcania.ml Port: 19132")
         .setFooter("page 1 sur 2 | bot by dhaorix")
-     message.channel.sendMessage(mcpe_embed)
+        message.channel.sendMessage(mcpe_embed)
+      }
   
 });
