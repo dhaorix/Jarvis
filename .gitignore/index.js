@@ -32,8 +32,11 @@ const kissrando_imgs = [
     'https://1.bp.blogspot.com/-qb3Ue3DCVt4/TXPRHMkzQNI/AAAAAAAASxw/4Ua--vQRLS0/s1600/Anime%2Bkiss%2Bpics.jpg',
     'https://data.whicdn.com/images/133303201/large.jpg',
     'http://2.bp.blogspot.com/-jFTH7pqZ6gU/Tb0zRIaDIUI/AAAAAAAAAE0/HV4AUeo5UdY/s1600/Anime+wallpapers+2011+Ever+Seen+2.jpg',
-
     ]
+const hentairando_imgs = [
+    'http://falara-unveiled.com/wp-content/gallery/sailor-moon/sample-9447e009380149a886ba45cb89371865.jpg',
+    'https://www.hentaicloud.com/media/photos/1043574.jpg',
+]
 
 bot.on('message', message => {
 
@@ -804,6 +807,13 @@ bot.on('message', message =>{
                 file: kissrando_imgs[Math.floor(Math.random() * kissrando_imgs.length)]
             });
         }
+    }
+  
+    if(message.content.startsWith(prefix + "hentai")) {
+        if (!message.channel.nsfw) return message.channel.send("Tu n'est pas dans un salon NSFW")       
+            message.channel.send(`${message.author} regarde du hentai :eyes: !`, {
+            file: hentairando_imgs[Math.floor(Math.random() * hentairando_imgs.length)]
+        });
     }
 
       if(message.content.startsWith(prefix + "listmcpe")) {
