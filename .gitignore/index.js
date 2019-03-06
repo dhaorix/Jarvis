@@ -827,4 +827,9 @@ bot.on('message', message =>{
         message.channel.sendMessage(mcpe_embed)
       }
   
+        if(message.content.startsWith(prefix + "avatar")) {
+        message.reply(message.author.avatarURL);
+    }
+      
+  
 });
