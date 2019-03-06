@@ -837,10 +837,6 @@ bot.on('message', message =>{
         message.channel.sendMessage(mcpe_embed)
       }
   
-        if(message.content.startsWith(prefix + "avatar")) {
-        message.reply(message.author.avatarURL);
-    }
-  
         if (message.content.startsWith(prefix + 'ping')) {
         message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
     }
