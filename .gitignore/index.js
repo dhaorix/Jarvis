@@ -835,6 +835,27 @@ bot.on('message', message =>{
         message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
     }
 
-      
+        if(message.content.startsWith(prefix + 'avatar')) {
+        let membreAvatarURL;
+        let membreName;
+        try {
+            membreAvatarURL = message.mentions.users.first().avatarURL;
+            membreName = message.mentions.users.first().username;
+        }catch (e) {
+            membreAvatarURL = message.author.avatarURL;
+            membreName = message.author.username;
+        }
+
+        const embedAvatar = new Discord.RichEmbed()
+            .setColor('#40A497')
+            .setAuthor(bot.user.username, bot.user.avatarURL)
+            .setDescription("Photo de profil de l'utilisateur")
+            .addField("Photo profil", membreName)
+            .setImage(`${membreAvatarURL}`)
+            .setTimestamp()
+            .setFooter(message.author.username, message.author.avatarURL);
+        
+        message.channel.send(embedAvatar);
+    }  
   
 });
