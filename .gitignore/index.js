@@ -36,6 +36,14 @@ const kissrando_imgs = [
 const hentairando_imgs = [
     'http://falara-unveiled.com/wp-content/gallery/sailor-moon/sample-9447e009380149a886ba45cb89371865.jpg',
     'https://www.hentaicloud.com/media/photos/1043574.jpg',
+    'http://falara-unveiled.com/wp-content/gallery/nisekoi/1328433-Circle_Anco-Nisekoi-chitoge_kirisaki.jpg',
+    'http://falara-unveiled.com/wp-content/gallery/inuyasha/1630115-Inuyasha-Kagura.jpg',
+    'https://hhhcccgggg.files.wordpress.com/2014/11/event_412.png',
+    'http://falara-unveiled.com/wp-content/gallery/ichigo-100/sample-9a28bf4d094ed06919e656a1eddc8ac8.jpg',
+    'https://i1.yuki.la/5/0c/5b397b5e2a7d0cd32cb95fb6c1d2d4ca415e122954f1463da13e024ae6b8e0c5.jpg',
+    'https://www.hentaicloud.com/media/photos/1043588.jpg',
+    'https://www.hentaicloud.com/media/photos/1054184.jpg',
+    'https://img.simplyotaku.com/500/483/gallery/heartcatch_pretty_cure_hentai_03.jpg',
 ]
 
 bot.on('message', message => {
