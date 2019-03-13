@@ -32,6 +32,13 @@ const kissrando_imgs = [
     'https://1.bp.blogspot.com/-qb3Ue3DCVt4/TXPRHMkzQNI/AAAAAAAASxw/4Ua--vQRLS0/s1600/Anime%2Bkiss%2Bpics.jpg',
     'https://data.whicdn.com/images/133303201/large.jpg',
     'http://2.bp.blogspot.com/-jFTH7pqZ6gU/Tb0zRIaDIUI/AAAAAAAAAE0/HV4AUeo5UdY/s1600/Anime+wallpapers+2011+Ever+Seen+2.jpg',
+     //les gifs
+    'https://cdn.discordapp.com/attachments/552044892705259549/555370047967592449/Imagenes_de_Animes_-_90.gif',
+    'https://cdn.discordapp.com/attachments/552044892705259549/555368389502304256/66191b81d5bf6c70bd065736f3e8662b.gif',
+    'https://cdn.discordapp.com/attachments/552044892705259549/555368168478998558/59a8bcd1e9cc4fb5d7ae1a97c9fb466e.gif',
+    'https://cdn.discordapp.com/attachments/552044892705259549/555368108202655774/Mes_Photos_Otaku_-_Gif_Kiss.gif',
+    'https://cdn.discordapp.com/attachments/552044892705259549/555368005689802752/83a23e4dace74cfd8bf1a227860aeb95.gif',
+    
     ]
 const hentairando_imgs = [
     'http://falara-unveiled.com/wp-content/gallery/sailor-moon/sample-9447e009380149a886ba45cb89371865.jpg',
