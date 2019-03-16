@@ -668,12 +668,13 @@ bot.on('message', message =>{
         .setTitle(":confetti_ball: List des commandes fun :confetti_ball:")
         .addField("/ping", "pong")
         .addField("/xp", "voir votre xp (en dev)")
+        .addField("/mariage <@mention>", "demander en mariage(en dev)")
         .addField("/bar", "boire une boisson")
         .addField("/xenolda question?", "pose ta question au bot")
         .addField("/avatar <mention>", "met l'avatar mentionner")
         .addField("/hentai", "image aléatoir de hentai")
-        .addField("/hug <mention>", "image aléatoir de calîn")
-        .addField("/kiss <mention>", "image aléatoir de bisou")
+        .addField("/hug <@mention>", "image aléatoir de calîn")
+        .addField("/kiss <@mention>", "image aléatoir de bisou")
         .setFooter("fun | bot by dhaorix")
         message.channel.send(fun_embed);
     }
