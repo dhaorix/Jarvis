@@ -172,6 +172,7 @@ bot.on('message', message =>{
       .addField("/fun", "affiche les commandes pour le fun")
       .addField("/moderation", "affiche lescommandes de moderation")
       .addField("/utile", "affiche les commandes utiles")
+      .addField("/image", "affiche les commandes d'image")
       .addField("/music", "affiche les commandes de music(en dev)")
       .setFooter("help | bot by dhaorix")
       message.channel.sendMessage(help_embed);
@@ -191,6 +192,23 @@ bot.on('message', message =>{
         .setFooter("utile | bot by dhaorix")
         message.channel.sendMessage(utiles_embed);
     }
+  
+      if(message.content === prefix + "image"){
+        var image_embed = new Discord.RichEmbed()
+        .setColor("#40A497")
+        .setTitle(":frame_photo: List des commandes image :frame_photo:")
+        .addField("-", "---General---")
+        .addField("/kawai", "image aléatoir de girl kawai")
+        .addField("/hug <@mention>", "image aléatoir de calîn")
+        .addField("/kiss <@mention>", "image aléatoir de bisou")
+        .addField("-", "---NSFW---")
+        .addField("/hentai", "image aléatoir de hentai")
+        .addField("/nude", "image aléatoir de nude")
+        .setFooter("help | bot by dhaorix")
+        message.channel.sendMessage(image_embed);
+
+    }
+
 
     if (!message.content.startsWith(prefix)) return
     var args = message.content.substring(prefix.length).split(" ");
