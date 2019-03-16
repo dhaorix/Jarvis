@@ -690,9 +690,6 @@ bot.on('message', message =>{
         .addField("/bar", "boire une boisson")
         .addField("/xenolda question?", "pose ta question au bot")
         .addField("/avatar <mention>", "met l'avatar mentionner")
-        .addField("/hentai", "image aléatoir de hentai")
-        .addField("/hug <@mention>", "image aléatoir de calîn")
-        .addField("/kiss <@mention>", "image aléatoir de bisou")
         .setFooter("fun | bot by dhaorix")
         message.channel.send(fun_embed);
     }
