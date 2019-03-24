@@ -149,7 +149,12 @@ bot.on("message", message => {
 
         if (count < 1 || count > 100) return message.channel.send("Veuillez indiquer un nombre entre 1 et 100")
 
-        message.channel.bulkDelete(parseInt(count) + 1)
+        message.channel.bulkDelete(parseInt(count) + 1).then(() => {
+
+            message.channel.send(`Cleared ${count} messages.`).then(msg => msg.delete(5000));
+        
+        });
+    }
 
     }
 
