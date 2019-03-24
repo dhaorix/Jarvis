@@ -156,7 +156,7 @@ bot.on("message", message => {
         });
     }
 
-    }
+    });
 
 
 
