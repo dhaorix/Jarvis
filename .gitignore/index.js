@@ -826,8 +826,8 @@ bot.on('message', message =>{
 
     if(message.content.startsWith(prefix + "hug")) {
         if(message.mentions.members.size == 1) {
-            let member = message.mentions.members.first()
-            message.channel.send(`${message.author} donne a ${member} un calîn :heart: !`, {
+            let member = message.mentions.users.first().username;
+            message.channel.send(`**${message.author} donne a ${member} un calîn :heart: !**`, {
                 file: hugrando_imgs[Math.floor(Math.random() * hugrando_imgs.length)]
             });
         }
@@ -835,8 +835,8 @@ bot.on('message', message =>{
 
     if(message.content.startsWith(prefix + "kiss")) {
         if(message.mentions.members.size == 1) {
-            let member = message.mentions.members.first()
-            message.channel.send(`${message.author} fait un bisou a ${member} :lips: !`, {
+            let member = message.mentions.users.first().username;
+            message.channel.send(`**${message.author} fait un bisou a ${member} :lips: !**`, {
                 file: kissrando_imgs[Math.floor(Math.random() * kissrando_imgs.length)]
             });
         }
