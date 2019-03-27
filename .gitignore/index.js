@@ -40,6 +40,14 @@ const kissrando_imgs = [
     'https://cdn.discordapp.com/attachments/552044892705259549/555368005689802752/83a23e4dace74cfd8bf1a227860aeb95.gif',
     
     ]
+const nekorando_imgs = [
+    'https://cdn.discordapp.com/attachments/411456907807555586/560189940974223381/9k-1.png',
+    'https://cdn.discordapp.com/attachments/411456907807555586/560189940974223383/thZH5026D1.jpg',
+    'https://cdn.discordapp.com/attachments/411456907807555586/560189941624209428/th.png',
+    'https://cdn.discordapp.com/attachments/411456907807555586/560189942169337886/th-3.png',
+    'https://cdn.discordapp.com/attachments/411456907807555586/560190347657871363/images.png',
+    'https://cdn.discordapp.com/attachments/411456907807555586/560190348681412631/images-1.png',
+]
 const hentairando_imgs = [
     'http://falara-unveiled.com/wp-content/gallery/sailor-moon/sample-9447e009380149a886ba45cb89371865.jpg',
     'https://www.hentaicloud.com/media/photos/1043574.jpg',
@@ -198,7 +206,7 @@ bot.on('message', message =>{
         .setColor("#40A497")
         .setTitle(":frame_photo: List des commandes image :frame_photo:")
         .addField("-", "---General---")
-        .addField("/kawai", "image aléatoir de girl kawai")
+        .addField("/neko", "image aléatoir de neko girl")
         .addField("/hug <@mention>", "image aléatoir de calîn")
         .addField("/kiss <@mention>", "image aléatoir de bisou")
         .addField("-", "---NSFW---")
@@ -303,199 +311,95 @@ bot.on('message', message =>{
         
 
         case "xenolda":
-
         let args = message.content.split(" ").slice(1);
-
         let tte = args.join(" ")
-
         if (!tte){
-
-            return message.reply("Merci de poser une question :8ball:")
-
+           return message.reply("Merci de poser une question :8ball:")
         };
 
-
-
         var replys = [
-
             "oui",
-
             "non",
-
             "peut être",
-
             "je sais pas",
-
             "hahahaha mdr lui",
-
             "demande a mon maître",
-
             "sa peut dépendre de toi :)",
-
             "si tu veux...",
-
             "sûrment pas !",
-
             "fait voir un peut :joy:",
-
             "azy arrete de poser des quetion toi !",
-
             "ce que tu veux !",
-
             "je prèfer répondre a une autre question",
-
             "Mais si c'est possible avec la carte kiwi !",
-
             "alors la !",
-
             "mais non tes bete toi",
-
             "t'aime l'orthographe ? car tu devrais prendre des cours !",
-
             "je suis malade",
-
             "lol",
-
             "nop",
-
             "yep",
-
             "||blc frere||",
-
             "j'repond pas au kikoo de fornith",
-
             "ok mais non",
-
             "pas besoin",
-
             "mouai",
-
             "moi j'aime dhaorix",
-
             "trop raison toi ;)",
-
             "vive lucifer, vivre dhaorix :smiling_imp:",
-
             "ecoute je m'en fou ok",
-
             "je suis mechant mais je vais changer",
-
             "j'aime tlm moi",
-
             "ouuiiiiiii",
-
             "dac",
-
             "hum",
-
             "arrete ou je te hack",
-
             "fait pas le malin",
-
             "alors toi tes mon pref",
-
             ":joy:",
-
             "hehehe , a voir...",
-
             "trololol pas compris",
-
             "hrmmmm",
-
             "yes mec",
-
             "bug",
-
             "bah bonjour on peut commencer par sa nan?",
-
             "clap",
-
             "mais!!! tu me soul",
-
             "je suis calme",
-
             "grrrrr, nan rien"
-
         ];
-
-
-
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
-
         message.channel.send(message.reply(reponse))
-
-    
-
-    
-
     }
 
     if(message.content.startsWith(prefix + "unmute")) {
-
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !");
-
-
-
         if(message.mentions.users.size === 0) {
-
             return message.channel.send("vous devez mentionner un utilistateur");
-
         }
-
-
-
         var mute = message.guild.member(message.mentions.users.first());
-
         if(!mute) {
-
             return message.channel.send("je n'ai pas trouver l'utilisateur ou il n'existe pas !");
-
         }
-
-
-
         if(!message.guild.member(bot.user).hasPermission("ADMINISTRATOR")) return message.channel.send("je n'ai pas les permission");
-
         message.channel.overwritePermissions(mute, { SEND_MESSAGES: true}).then(member => {
-
             message.channel.send(`${mute.user.username} n'est plus mute !`);
-
         })
-
     }
 
     if(message.content.startsWith(prefix + "mute")) {
-
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !");
-
-
-
         if(message.mentions.users.size === 0) {
-
             return message.channel.send("vous devez mentionner un utilistateur");
-
         }
-
-
-
         var mute = message.guild.member(message.mentions.users.first());
-
         if(!mute) {
-
             return message.channel.send("je n'ai pas trouver l'utilisateur ou il n'existe pas !");
-
         }
-
-
-
         if(!message.guild.member(bot.user).hasPermission("ADMINISTRATOR")) return message.channel.send("je n'ai pas les permission");
-
         message.channel.overwritePermissions(mute, { SEND_MESSAGES: false}).then(member => {
-
             message.channel.send(`${mute.user.username} est mute !`);
-
         })
-
     }
 
     if(message.content === prefix + "info") {
@@ -513,155 +417,37 @@ bot.on('message', message =>{
     }
 
     if(message.content.startsWith(prefix + "kick")){
-
-
-
         if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send("Vous n'avez pas la permission!");
-
-
-
-    
-
-
-
         if(message.mentions.users.size === 0) {
-
-
-
             return message.channel.send("Vous devez metionner un utilisaeur")
-
-
-
         }
-
-
-
         var kick = message.guild.member(message.mentions.users.first());
-
-
-
         if(!kick) {
-
-
-
             return message.channel.send("Je ne sais pas si l'utilisateur existe :/")
-
-
-
         }
-
-
-
-    
-
-
-
         if(message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-
-
-
             return message.channel.send("Je n'ai pas la permission pour kick");
-
-
-
         }
-
-
-
-    
-
-
-
         kick.kick().then(member => {
-
-
-
             message.channel.send(`${member.user.username} est kick par ${message.author.username}`);
-
-
-
         });
-
-
-
     }
 
     if(message.content.startsWith(prefix + "ban")) {
-
-
-
         if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("Vous n'avez pas la perission");
-
-
-
-
-
-
-
         if(message.mentions.users.size === 0) {
-
-
-
             return message.channel.send("Vous devez mentionner un utilisateur");
-
-
-
         }
-
-
-
-
-
-
-
         var ban = message.guild.member(message.mentions.users.first());
-
-
-
         if(!ban) {
-
-
-
             return message.channel.send("Je ne sais pas si l'utilisateur existe");
-
-
-
         }
-
-
-
-
-
-
-
         if(!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
-
-
-
             return message.channel.send("Je n'ai pas la permission pour ban");
-
-
-
         }
-
-
-
         ban.ban().then(member => {
-
-
-
             message.channel.send(`${member.user.username} est ban par ${message.author.username} !`)
-
-
-
         });
-
-
-
-        
-
-
-
     }
 
     if(message.content === prefix + "moderation") {
@@ -695,133 +481,67 @@ bot.on('message', message =>{
     }
 
     if(message.content.startsWith(prefix + "sondage1")) {
-
             if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
-
             let args = message.content.split(" ").slice(1);
-
             let thingToEcho = args.join(" ")
-
             if (!thingToEcho){
-
                 return message.reply("Merci de poser une question :grin:")
-
             };
-
             var sondage_embed = new Discord.RichEmbed()
-
                .setColor('#40A497')
-
                .setDescription("Sondage")
-
                .addField(thingToEcho, "Répondre avec :white_check_mark: ou :x:")
-
                .setFooter("Sondage | bot by dhaorix")
-
                .setTimestamp()
-
             message.delete().catch(O_o=>{});  
-
             message.channel.sendMessage(sondage_embed)
-
             .then(function (message) {
-
                 message.react("✅")
-
                 message.react("✖")
-
             }).catch(function(){
-
             });
-
     }
 
     if(message.content.startsWith(prefix + "report")) {
-
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-
         if (!rUser) return message.channel.send("mention une personner est met ton message")
-
         let reason = args.join(" ").slice(22);
-
-
-
         let report_embed = new Discord.RichEmbed()
-
         .setColor('#40A497')
-
         .setDescription("Report")
-
         .setThumbnail(message.author.avatarURL)
-
         .addField("Report User", `${rUser} son ID: ${rUser.id}`)
-
         .addField("Report de", `${message.author}, son ID: ${rUser.id}`)
-
         .addField("Dans le salon", message.channel)
-
         .addField("Fait le", message.createdAt)
-
         .addField("Raison", reason);
-
-
-
         let reportschannel = message.guild.channels.find(`name`, "report");
-
         if(!reportschannel) return message.channel.send("Désoler, je ne trouve pas le salon report");
-
-
-
         message.delete().catch(O_o=>{});
-
         reportschannel.send(report_embed);
-
-
-
         return;
-
     }
 
     if(message.content.startsWith(prefix + "sondage2")) {
-
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
-
         let args = message.content.split(" ").slice(1);
-
         let thingToEcho = args.join(" ")
-
         if (!thingToEcho){
-
             return message.reply("Merci de poser une question :grin:")
-
         };
-
         var sondage_embed = new Discord.RichEmbed()
-
            .setColor('#40A497')
-
            .setDescription("Sondage")
-
            .addField(thingToEcho, "Répondre avec :a: ou :b:")
-
            .setFooter("Sondage | bot by dhaorix")
-
            .setTimestamp()
-
         message.delete().catch(O_o=>{});  
-
         message.channel.sendMessage(sondage_embed)
-
         .then(function (message) {
-
             message.react("🅰")
-
             message.react("🅱")
-
         }).catch(function(){
-
         });
-
     }
 
     if(message.content.startsWith(prefix + "hug")) {
@@ -830,7 +550,15 @@ bot.on('message', message =>{
             message.channel.send(`**${message.author.username} donne a ${member} un calîn :heart: !**`, {
                 file: hugrando_imgs[Math.floor(Math.random() * hugrando_imgs.length)]
             });
+        }else {
+            message.reply("tu ne peut pas faire un câlin a toi même ;-;")
         }
+    }
+  
+    if(message.content.startsWith(prefix + "neko")) {
+        message.channel.send(`**${message.author.username} regarde du neko **`, {
+            file: nekorando_imgs[Math.floor(Math.random() * nekorando_imgs.length)]
+        });
     }
 
     if(message.content.startsWith(prefix + "kiss")) {
@@ -839,6 +567,8 @@ bot.on('message', message =>{
             message.channel.send(`**${message.author.username} fait un bisou a ${member} :lips: !**`, {
                 file: kissrando_imgs[Math.floor(Math.random() * kissrando_imgs.length)]
             });
+        }else {
+            message.reply("tu ne peut pas faire un bisou a toi même ;-;")
         }
     }
   
