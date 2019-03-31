@@ -62,117 +62,83 @@ const hentairando_imgs = [
 ]
 
 bot.on('message', message => {
-
     if(message.content === 'Ping') {
-
      message.channel.sendMessage('ta cru toi :joy:');
-
     }
-
 });
 
 bot.on('message', message => {
-
     if (message.content === 'Bonjour') {
-
       message.reply('yosh la team fornigh pfff gamin')
-
     }
-
 });
 
 bot.on('message', message => {
-
     if (message.content === prefix + "invite") {
-
      message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8" )
-
     }
-
 });
 
 bot.on('message', message =>{
-
     if(message.content === "Tu fais quoi?"){
-
         message.reply('Je mange des pâtes dans ma pastabox ! :heart:');
-
         console.log('répond à tfq');
-
     }
-
 });
 
 bot.on('guildMemberAdd', member =>{
-
     let embed = new Discord.RichEmbed()
-
         .setColor("#40A497")
-
         .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name)
-
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
-
-    member.guild.channels.get('410498158246887434').send(embed)
-
-    member.addRole('410494803680428042')
-
- 
-
+    member.guild.channels.get('561139724794724354').send(embed)
+    member.addRole('560487165801267210')
 });
 
 bot.on('guildMemberRemove', member =>{
-
     let embed = new Discord.RichEmbed()
-
         .setColor("#40A497")
-
         .setDescription(':cry: **' + member.user.username + '** a quitté ' + member.guild.name)
-
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
+    member.guild.channels.get('561139724794724354').send(embed)
+});
 
+bot.on('guildMemberAdd', member =>{
+    let embed = new Discord.RichEmbed()
+        .setColor("#40A497")
+        .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name)
+        .setFooter('Nous sommes désormais ' + member.guild.memberCount)
     member.guild.channels.get('410498158246887434').send(embed)
+    member.addRole('410494803680428042')
+});
 
- 
-
+bot.on('guildMemberRemove', member =>{
+    let embed = new Discord.RichEmbed()
+         .setColor("#40A497")
+        .setDescription(':cry: **' + member.user.username + '** a quitté ' + member.guild.name)
+        .setFooter('Nous sommes désormais ' + member.guild.memberCount)
+    member.guild.channels.get('410498158246887434').send(embed)
 });
 
 bot.on("message", message => {
-
     if (!message.guild) return
-
     let args = message.content.trim().split(/ +/g)
-
- 
-
     if (args[0].toLowerCase() === prefix + "clear") {
-
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande")
-
         let count = args[1]
-
         if (!count) return message.channel.send("Veuillez indiquer un nombre de messages à supprimer entre 1 et 100")
-
         if (isNaN(count)) return message.channel.send("Veuillez indiquer un nombre valide")
-
         if (count < 1 || count > 100) return message.channel.send("Veuillez indiquer un nombre entre 1 et 100")
-
         message.channel.bulkDelete(parseInt(count) + 1).then(() => {
-
             message.channel.send(`Cleared ${count} messages.`).then(msg => msg.delete(5000));
-        
         });
-    }
-
-    });
+    }});
 
 
 bot.on('message', message =>{
 
     if(message.content === prefix + "help"){
-
       var help_embed = new Discord.RichEmbed()
-
       .setColor("#40A497")
       .setTitle(":tools: Voici mes commandes d'aide :tools:")
       .setDescription("Tout les catégorie des commandes ")
@@ -221,91 +187,53 @@ bot.on('message', message =>{
     if (!message.content.startsWith(prefix)) return
     var args = message.content.substring(prefix.length).split(" ");
     switch (args[0].toLowerCase()) {
-
         
-
         case"serverlist":
-
         message.channel.send(bot.guilds.map(r => r.name + ` | **${r.memberCount}** membres`))
-
         break;
 
         
 
         case "userstats":
-
         var userCreateData = message.author.createdAt.toString().split(" ");
-
         var msgauthor = message.author.id;
-
         var stast_embed = new Discord.RichEmbed()
-
       .setColor("#40A497")
-
       .setTitle(`Stastistiques de l'utilisateur : ${message.author.username}`)
-
       .addField(`ID de l'utilisateur :id:`, msgauthor, true)
-
       .addField("Date de création de l'utilisateur :", userCreateData[1] + ' ' + userCreateData[2] + ' ' + userCreateData[3])
-
       .setThumbnail(message.author.avatarURL)
-
       message.reply("Va dans tes message privé ! tu viens de recevoir tes statistique !")
-
       message.author.send({embed: stast_embed});
-
       break;
 
         
 
          case "bar":
 
-
-
       var replys = [
-
           ":baby_bottle:whisky",
-
           ":beer: bière",
-
           ":champagne: champagne",
-
           ":wine_glass: vin",
-
           "vodka",
-
           ":cocktail: cocktail",
-
           ":tropical_drink: tropical",
-
       ];
 
       function getRandomInt(max) {
-
         return Math.floor(Math.random() * Math.floor(max));
-
     }
 
-
-
       let nombb = (getRandomInt(100))
-
       let repons = (replys[Math.floor(Math.random() * replys.length)])
-
       var bar_embed = new Discord.RichEmbed()
-
       .setColor('#40A497')
-
       .setTitle("bar")
-
       .addField("tu as bu un verre de ", repons)
-
       .addField("tu as reçu ", `+ 0,${nombb}mg d'alcool`)
-
       .setFooter("bar | bot by dhaorix")
-
       message.channel.sendMessage(bar_embed) 
-
       break; 
 
         
