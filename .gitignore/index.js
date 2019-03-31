@@ -86,22 +86,6 @@ bot.on('message', message =>{
     }
 });
 
-bot.on('guildMemberAdd', member =>{
-    let embed = new Discord.RichEmbed()
-        .setColor("#40A497")
-        .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name)
-        .setFooter('Nous sommes désormais ' + member.guild.memberCount)
-    member.guild.channels.get('561139724794724354').send(embed)
-    member.addRole('560487165801267210')
-});
-
-bot.on('guildMemberRemove', member =>{
-    let embed = new Discord.RichEmbed()
-        .setColor("#40A497")
-        .setDescription(':cry: **' + member.user.username + '** a quitté ' + member.guild.name)
-        .setFooter('Nous sommes désormais ' + member.guild.memberCount)
-    member.guild.channels.get('561139724794724354').send(embed)
-});
 
 bot.on('guildMemberAdd', member =>{
     let embed = new Discord.RichEmbed()
