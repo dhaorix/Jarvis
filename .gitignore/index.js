@@ -80,6 +80,14 @@ bot.on('message', message => {
 });
 
 bot.on('message', message => {
+    if (message.content === 'Kaguya') {
+      message.reply(' Ou sa !? Je veux un authograph! ')
+    }
+});
+
+Kaguya Ou sa !? Je veux un authograph!
+
+bot.on('message', message => {
     if (message.content === prefix + "invite") {
      message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8" )
     }
