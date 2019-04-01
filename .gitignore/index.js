@@ -47,6 +47,11 @@ const nekorando_imgs = [
     'https://cdn.discordapp.com/attachments/411456907807555586/560189942169337886/th-3.png',
     'https://cdn.discordapp.com/attachments/411456907807555586/560190347657871363/images.png',
     'https://cdn.discordapp.com/attachments/411456907807555586/560190348681412631/images-1.png',
+    'https://cdn.discordapp.com/attachments/562179899436171266/562182370787065866/hentai-sexy-anime-fille-blonde-154106.jpg',
+    'https://cdn.discordapp.com/attachments/562179899436171266/562182627273211914/JPEG_20190317_213458.jpg',
+    'https://cdn.discordapp.com/attachments/562179899436171266/562183010410299402/img-25178416bb.jpg',
+    'https://cdn.discordapp.com/attachments/562179899436171266/562183011555082260/19e9f66d0b16046bf925b18ac6c57296200fd02f_hq.jpg',
+    
 ]
 const hentairando_imgs = [
     'http://falara-unveiled.com/wp-content/gallery/sailor-moon/sample-9447e009380149a886ba45cb89371865.jpg',
