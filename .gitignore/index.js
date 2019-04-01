@@ -51,6 +51,7 @@ const nekorando_imgs = [
     'https://cdn.discordapp.com/attachments/562179899436171266/562182627273211914/JPEG_20190317_213458.jpg',
     'https://cdn.discordapp.com/attachments/562179899436171266/562183010410299402/img-25178416bb.jpg',
     'https://cdn.discordapp.com/attachments/562179899436171266/562183011555082260/19e9f66d0b16046bf925b18ac6c57296200fd02f_hq.jpg',
+    'https://cdn.discordapp.com/attachments/562179899436171266/562183011555082260/19e9f66d0b16046bf925b18ac6c57296200fd02f_hq.jpg',
     
 ]
 const hentairando_imgs = [
