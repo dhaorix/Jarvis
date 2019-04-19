@@ -137,7 +137,7 @@ bot.on('message', message =>{
         var help_embed = new Discord.RichEmbed()
         .setColor("#40A497")
         .setTitle(":tools: Voici mes commandes d'aide :tools:")
-        .setDescription("Tout les catégorie des commandes ")
+        .setDescription("Command du bot pour tout serveur ")
         .addField("**:octagonal_sign: -MODERATION-:octagonal_sign: **", "``/kick, /ban, /mute<mention>, /unmute<mention>, /clear<nombre>, /sondage<1ou2>``")
         .addField("**:confetti_ball:-FUN-:confetti_ball:**", "``/say, /ping, /bar, /avatar<mention>, /xenolda question?``")
         .addField("**:notebook_with_decorative_cover:-UTILE-:notebook_with_decorative_cover:**", "``/userstats, /serverlist, /info, /invite, /report <mention> <message>``")
@@ -145,8 +145,7 @@ bot.on('message', message =>{
         .addField("**:notes:-MUSIC-:notes:**", "``ARRIVE BIENTOT``")
         .addField("**:ring:-MARIAGE-:ring:**", "``ARRIVE BIENTOT``")
         .setFooter("help | bot by dhaorix")
-        message.channel.sendMessage(help_embed);
-        console.log("une personne utilise une command")  
+        message.channel.sendMessage(help_embed);  
     }
 
 
