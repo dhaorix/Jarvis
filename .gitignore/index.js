@@ -133,50 +133,20 @@ bot.on("message", message => {
 
 bot.on('message', message =>{
 
-    if(message.content === prefix + "help"){
-      var help_embed = new Discord.RichEmbed()
-      .setColor("#40A497")
-      .setTitle(":tools: Voici mes commandes d'aide :tools:")
-      .setDescription("Tout les catégorie des commandes ")
-      .addField("/help" , "affiche les command du bot")
-      .addField("/fun", "affiche les commandes pour le fun")
-      .addField("/moderation", "affiche lescommandes de moderation")
-      .addField("/utile", "affiche les commandes utiles")
-      .addField("/image", "affiche les commandes d'image")
-      .addField("/music", "affiche les commandes de music(en dev)")
-      .setFooter("help | bot by dhaorix")
-      message.channel.sendMessage(help_embed);
-      console.log("une personne utilise une command")
-    }
-
-    
-    if(message.content === prefix + "utile"){
-        var utiles_embed = new Discord.RichEmbed()
+    if(message.content.startsWith(prefix + 'help')){
+        var help_embed = new Discord.RichEmbed()
         .setColor("#40A497")
-        .setTitle(":notebook_with_decorative_cover: List des commandes utiles :notebook_with_decorative_cover: ")
-        .addField("/userstats", "savoirs vos statistiques")
-        .addField("/info", "donne les info de votre server")
-        .addField("/invite", "lien pour m'inviter")
-        .addField("/serverlist", "list de tout les server")
-        .addField("/report @Xenolda <message>", "report dans un salon report")
-        .setFooter("utile | bot by dhaorix")
-        message.channel.sendMessage(utiles_embed);
-    }
-  
-      if(message.content === prefix + "image"){
-        var image_embed = new Discord.RichEmbed()
-        .setColor("#40A497")
-        .setTitle(":frame_photo: List des commandes image :frame_photo:")
-        .addField("-", "---General---")
-        .addField("/neko", "image aléatoir de neko girl")
-        .addField("/hug <@mention>", "image aléatoir de calîn")
-        .addField("/kiss <@mention>", "image aléatoir de bisou")
-        .addField("-", "---NSFW---")
-        .addField("/hentai", "image aléatoir de hentai")
-        .addField("/nude", "image aléatoir de nude")
+        .setTitle(":tools: Voici mes commandes d'aide :tools:")
+        .setDescription("Tout les catégorie des commandes ")
+        .addField("**:octagonal_sign: -MODERATION-:octagonal_sign: **", "``/kick, /ban, /mute<mention>, /unmute<mention>, /clear<nombre>, /sondage<1ou2>``")
+        .addField("**:confetti_ball:-FUN-:confetti_ball:**", "``/say, /ping, /bar, /avatar<mention>, /xenolda question?``")
+        .addField("**:notebook_with_decorative_cover:-UTILE-:notebook_with_decorative_cover:**", "``/userstats, /serverlist, /info, /invite, /report <mention> <message>``")
+        .addField("**:frame_photo:-IMAGE-:frame_photo:**", "``/kiss, /hug, /neko,`` |NSFW: ``/hentai, /nude``")
+        .addField("**:notes:-MUSIC-:notes:**", "``ARRIVE BIENTOT``")
+        .addField("**:ring:-MARIAGE-:ring:**", "``ARRIVE BIENTOT``")
         .setFooter("help | bot by dhaorix")
-        message.channel.sendMessage(image_embed);
-
+        message.channel.sendMessage(help_embed);
+        console.log("une personne utilise une command")  
     }
 
 
@@ -374,35 +344,7 @@ bot.on('message', message =>{
         });
     }
 
-    if(message.content === prefix + "moderation") {
-        var mod_embed = new Discord.RichEmbed()
-        .setColor('#40A497')
-        .setTitle(`:scales: List des commandes de moderation :scales: `)
-        .setDescription("Pour c'est commande, il faut avoir les perm")
-        .addField("/kick <@user>", "Kick l'utilisateur !")
-        .addField("/ban <@user>", "Ban l'utilisateur !")
-        .addField("/clear nombre", "Supprime le nombre de messages indiqué")
-        .addField("/mute <@user>", "Mute l'utilisateur mentionné")
-        .addField("/unmute <@user>", "Unmute l'utilisateur mentionné")
-        .addField("/sondage1", "sondage oui ou non")
-        .addField("/sondage2", "sondage A ou B")
-        .setFooter("modération | bot by dhaorix")
-        message.channel.send(mod_embed)
-    }
 
-    if(message.content === prefix + "fun") {
-        var fun_embed = new Discord.RichEmbed()
-        .setColor('#40A497')
-        .setTitle(":confetti_ball: List des commandes fun :confetti_ball:")
-        .addField("/ping", "pong")
-        .addField("/xp", "voir votre xp (en dev)")
-        .addField("/mariage <@mention>", "demander en mariage(en dev)")
-        .addField("/bar", "boire une boisson")
-        .addField("/xenolda question?", "pose ta question au bot")
-        .addField("/avatar <mention>", "met l'avatar mentionner")
-        .setFooter("fun | bot by dhaorix")
-        message.channel.send(fun_embed);
-    }
 
     if(message.content.startsWith(prefix + "sondage1")) {
             if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
