@@ -141,7 +141,7 @@ bot.on('message', message =>{
         .addField("**:octagonal_sign: -MODERATION-:octagonal_sign: **", "``/kick, /ban, /mute<mention>, /unmute<mention>, /clear<nombre>, /sondage<1ou2>``")
         .addField("**:confetti_ball:-FUN-:confetti_ball:**", "``/say, /ping, /bar, /avatar<mention>, /xenolda question?``")
         .addField("**:notebook_with_decorative_cover:-UTILE-:notebook_with_decorative_cover:**", "``/userstats, /serverlist, /info, /invite, /report <mention> <message>``")
-        .addField("**:frame_photo:-IMAGE-:frame_photo:**", "``/kiss, /hug, /neko,`` |NSFW: ``/hentai, /nude``")
+        .addField("**:frame_photo:-IMAGE-:frame_photo:**", "``/kiss, /hug, /neko,`` NSFW: ``/hentai, /nude``")
         .addField("**:notes:-MUSIC-:notes:**", "``ARRIVE BIENTOT``")
         .addField("**:ring:-MARIAGE-:ring:**", "``ARRIVE BIENTOT``")
         .setFooter("help | bot by dhaorix")
