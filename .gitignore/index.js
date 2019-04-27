@@ -303,6 +303,7 @@ bot.on('message', message =>{
         .addField("Date de création :", message.guild.createdAt)
         .addField("tu as rejoind le :", message.member.joinedAt)
         .addField("Nombre de membres", message.guild.members.size)
+        .addField("Nombre de roles", message.guild.roles.size)
         .addField("Nombre de catégories et de salons", message.guild.channels.size)
         .setFooter("info | bot by dhaorix")
         message.channel.sendMessage(info_embed)
