@@ -3,7 +3,7 @@ const bot = new Discord.Client()
 var prefix = "$"
 
 bot.on('ready', function () {
-  bot.user.setPresence({ game: { name: `/help | ${bot.guilds.size} serveurs`, type: 0} });
+  bot.user.setPresence({ game: { name: `$help | ${bot.guilds.size} serveurs`, type: 0} });
   console.log("Je suis connecté !")
 });
 
