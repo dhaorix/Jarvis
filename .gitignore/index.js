@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
-var prefix = "/"
+var prefix = "$"
 
 bot.on('ready', function () {
   bot.user.setPresence({ game: { name: `/help | ${bot.guilds.size} serveurs`, type: 0} });
