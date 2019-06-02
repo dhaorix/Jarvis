@@ -3,7 +3,7 @@ const bot = new Discord.Client()
 var prefix = "$"
 
 bot.on('ready', function () {
-  bot.user.setActivity(`$help | ${bot.guilds.size} serveurs`, { type: 'STREAMING' });
+  bot.user.setActivity(`$help | ${bot.guilds.size} serveurs`, { type: 'WATCHING' });
   console.log("Je suis connecté !")
 });
 
