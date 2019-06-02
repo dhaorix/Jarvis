@@ -138,9 +138,9 @@ bot.on('message', message =>{
         .setColor("#40A497")
         .setTitle(":tools: Voici mes commandes d'aide :tools:")
         .setDescription("Command du bot pour tout serveur ")
-        .addField("**:octagonal_sign: -MODERATION-:octagonal_sign: **", "``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$clear<nombre>``, ``$sondage<1ou2>``")
+        .addField("**:octagonal_sign: -MODERATION-:octagonal_sign: **", "``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
         .addField("**:confetti_ball:-FUN-:confetti_ball:**", "``$say``, ``$ping``, ``$bar``, ``$avatar<mention>``, ``$xenolda question?``")
-        .addField("**:notebook_with_decorative_cover:-UTILE-:notebook_with_decorative_cover:**", "``$userstats``, ``$serverlist``, ``$info``, ``$invite``, ``$report <mention> <message>``")
+        .addField("**:notebook_with_decorative_cover:-UTILE-:notebook_with_decorative_cover:**", "``$userstats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
         .addField("**:frame_photo:-IMAGE-:frame_photo:**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:notes:-MUSIC-:notes:**", "``ARRIVE BIENTOT``")
         .addField("**:ring:-MARIAGE-:ring:**", "``ARRIVE BIENTOT``")
@@ -603,4 +603,66 @@ bot.on("message", async message => {
         message.delete();
         message.channel.send(text);
     }
+  if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("❌ Vous n'avez pas les permission pour mute");
+    if(message.content.startsWith(prefix + "help-mute")) {
+        message.reply("Utilisé : $tempmute <user> <1s/m/h/d> <Motivo> __ou__ $mute <@mention>/ $demute <@mention>");
+        return;
+    }
+    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if (!tomute) return message.reply("Mention une personne !"); //se não tiver mencionado o usuario vamos retornar
+    if (tomute.hasPermission("MANAGE_ROLES")) return message.reply("Désolé, il a les permission d'administrateur");
+    let reason = args.slice(2).join(" ");
+    if (!reason) return message.reply("Indique une raison");//se não tiver um motivo vamos retornar !
+ 
+    let muterole = message.guild.roles.find(`name`, "muted"); // Verifica se o server tem a tag muted
+    //se não tiver vamos criar !
+    if (!muterole) {
+        try {
+            muterole = await message.guild.createRole({
+                name: "muted",
+                color: "#000000",
+                permissions: []
+            })
+            message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(muterole, {
+                    SEND_MESSAGES: false,
+                    ADD_REACTIONS: false
+                });
+            });
+        } catch (e) {
+            console.log(e.stack);
+        }
+    }
+    //fim da criação do cargo
+    let mutetime = args[1];
+    if (!mutetime) return message.reply("Indiqué le temps"); //Não especificou o tempo ? Vamos retornar
+ 
+    message.delete().catch(O_o => {});
+ 
+    try {
+        await tomute.send(`Tu a été mute pendant ${mutetime}. Motif : ${reason}. A plus tard`) //avisando no dm da pessoa que ela foi mutada
+    } catch (e) {
+        message.channel.send(`ERROR!!!!!`) 
+    }
+ 
+    let muteembed = new Discord.RichEmbed()
+        .setDescription(`Mute par ${message.author}`)
+        .setColor("#40A497")
+        .addField("Utilisateur mute :", tomute)
+        .addField("Mute dans le salon :", message.channel)
+        .addField("Fait le :", message.createdAt)
+        .addField("Temps du mute :", mutetime)
+        .addField("Motif :", reason);
+ 
+    let incidentschannel = message.guild.channels.find(`name`, "log-staff" ) || message.guild.channels.find(`name`, "log" ) || message.guild.channels.find(`name`, "staff-log" ) || message.guild.channels.find(`name`, "logs" ) ; //Se o bot não achar as salas 
+    if(!incidentschannel) return message.channel.send("Créez un canal avec les options suivantes nommées «log-staff», «log», «staff-log», «log»"); //vamos retornar
+    incidentschannel.send(muteembed);
+    message.channel.send(`<@${tomute.id}> a été mute ${mutetime}`)
+    await (tomute.addRole(muterole.id));
+ 
+    setTimeout(function() {
+        tomute.removeRole(muterole.id);
+        message.channel.send(`<@${tomute.id}> a été demute`);
+    }, ms(mutetime));
+
 });
