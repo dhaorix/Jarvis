@@ -603,6 +603,8 @@ bot.on("message", async message => {
         message.delete();
         message.channel.send(text);
     }
+  
+  if(message.content.startsWith(prefix + "tempmute")) {
   if (!message.member.hasPermission("MANAGE_ROLES")) return message.reply("❌ Vous n'avez pas les permission pour mute");
     if(message.content.startsWith(prefix + "help-mute")) {
         message.reply("Utilisé : $tempmute <user> <1s/m/h/d> <Motivo> __ou__ $mute <@mention>/ $demute <@mention>");
@@ -664,5 +666,5 @@ bot.on("message", async message => {
         tomute.removeRole(muterole.id);
         message.channel.send(`<@${tomute.id}> a été demute`);
     }, ms(mutetime));
-
+  }
 });
