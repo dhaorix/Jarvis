@@ -146,6 +146,7 @@ bot.on('message', message =>{
         .addField("**:notes:-MUSIC-:notes:**", "``ARRIVE BIENTOT``")
         .addField("**:ring:-MARIAGE-:ring:**", "``ARRIVE BIENTOT``")
         .addField("**:page_with_curl:-TICKET-:page_with_curl: **", "``$new``, ``$close``")
+        .addField("-------", "[inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8)");
         .setFooter("help | bot by dhaorix")
         message.channel.sendMessage(help_embed);  
     }
