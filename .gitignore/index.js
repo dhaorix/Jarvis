@@ -142,9 +142,10 @@ bot.on('message', message =>{
         .addField("**:confetti_ball:-FUN-:confetti_ball:**", "``$say``, ``$ping``, ``$bar``, ``$avatar<mention>``, ``$xenolda question?``")
         .addField("**:notebook_with_decorative_cover:-UTILE-:notebook_with_decorative_cover:**", "``$userstats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
         .addField("**:frame_photo:-IMAGE-:frame_photo:**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
+        .addField("**:page_with_curl:-EN STREAM-:page_with_curl: **", "command quand le bot et en stream :``$level``, ``$money``")
+        .addField("**:page_with_curl:-TICKET-:page_with_curl: **", "``$new``, ``$close``")
         .addField("**:notes:-MUSIC-:notes:**", "``ARRIVE BIENTOT``")
         .addField("**:ring:-MARIAGE-:ring:**", "``ARRIVE BIENTOT``")
-        .addField("**:page_with_curl:-TICKET-:page_with_curl: **", "``$new``, ``$close``")
         .addField("-------", "[inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8)")
         .setFooter("help | bot by dhaorix")
         message.channel.sendMessage(help_embed);  
