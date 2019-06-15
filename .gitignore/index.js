@@ -139,7 +139,7 @@ bot.on('message', message =>{
         .setTitle(":tools: Voici mes commandes d'aide :tools:")
         .setDescription("Command du bot pour tout serveur ")
         .addField("**:octagonal_sign: - MODERATION**", "``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
-        .addField("**:confetti_ball: - FUN**", "``$say``, ``$ping``, ``$bar``, ``$avatar<mention>``, ``$xenolda question?``")
+        .addField("**:confetti_ball: - FUN**", "``$say``, ``$ping``, ``$bar``, ``$avatar<mention>``, ``$pileouface``, ``$joke``, ``$xenolda question?``")
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:page_with_curl: - TICKET**", "``$new``, ``$close``")
@@ -467,6 +467,50 @@ bot.on('message', message =>{
         .addField("Volcania", "Ip: volcania.ml Port: 19132")
         .setFooter("page 1 sur 2 | bot by dhaorix")
         message.channel.sendMessage(mcpe_embed)
+      }
+  
+        if(message.content.startsWith(prefix + 'joke')){
+        random();
+        var fun_embed = new Discord.RichEmbed()
+        if (randnum==0){
+            fun_embed.addField("C'est l'histoire du ptit dej, vous la connaissez ?","Pas de bol.")
+        }
+        if (randnum==1){
+            fun_embed.addField("Comment appelle-t-on un chien qui n'a pas de pattes ?","- On l'appelle pas, on va le chercher...")
+        }
+        if (randnum==2){
+            fun_embed.addField("Tu connais la définition d'un déséquilibré sexuel ?","C'est un mec qui bande et qui tombe en avant...")
+        }
+        if (randnum==3){
+            fun_embed.addField("Quel bruit faisait la montre d'Adolf Hitler ?","Dik-tat dik-tat dik-tat")
+        }
+        if (randnum==4){
+            fun_embed.addField("Que dit une fesse droite à une fesse gauche ?","-Ca va chier entre nous !")
+        }
+        if (randnum==5){
+            fun_embed.addField("Un jour Dieu dit à Casto de ramer. ","Et depuis, castorama...")
+        }
+        message.channel.sendEmbed(fun_embed);
+    }
+
+function random(min,max){
+    min=Math.ceil(0);
+    max=Math.floor(5);
+    randnum=Math.floor(Math.random()*(max-min+1)+min);
+}
+
+    if(message.content.startsWith(prefix + 'pileouface')) {
+        
+        res=getRandomInt(2)
+        if(res==0){
+            message.channel.send("Pile");
+        }
+        if(res==1){
+            message.channel.send("Face");
+        }
+    }
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
       }
   
         if (message.content.startsWith(prefix + 'ping')) {
