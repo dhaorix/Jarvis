@@ -144,7 +144,7 @@ bot.on('message', message =>{
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:page_with_curl: - TICKET**", "``$new``, ``$close``")
         .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``, ``$music-help``")
-        .addField("**:notes: - MUSIC**", "``ARRIVE BIENTOT``")
+        .addField("**:notes: - MUSIC**", "``voir le **En stram**``")
         .addField("**:ring: - MARIAGE**", "``ARRIVE BIENTOT``")
         .addField("-------", "[inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8)")
         .setFooter("help | bot by dhaorix")
