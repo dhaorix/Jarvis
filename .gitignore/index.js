@@ -143,7 +143,7 @@ bot.on('message', message =>{
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:page_with_curl: - TICKET**", "``$new``, ``$close``")
-        .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``")
+        .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``, ``$music-help``")
         .addField("**:notes: - MUSIC**", "``ARRIVE BIENTOT``")
         .addField("**:ring: - MARIAGE**", "``ARRIVE BIENTOT``")
         .addField("-------", "[inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8)")
