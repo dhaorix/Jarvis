@@ -546,6 +546,7 @@ bot.on('message', message =>{
         message.channel.sendEmbed(fun_embed);
     }
 
+  var randlovecalc = 0
 function random(min,max){
     min=Math.ceil(0);
     max=Math.floor(5);
