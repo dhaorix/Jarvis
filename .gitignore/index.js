@@ -83,6 +83,13 @@ bot.on('message', message => {
     if (message.content === 'Kaguya') {
       message.reply(' Ou sa !? Je veux un authograph! ')
     }
+  
+    if(message.content === "Hello") {
+    if (message.author.id != "278647337121873930") {
+      return message.channel.send("You not my owner")
+  }
+  message.channel.send("Welcome my owner")
+    }
 });
 
 bot.on('message', message => {
