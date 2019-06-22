@@ -146,7 +146,7 @@ bot.on('message', message =>{
         .setTitle(":tools: Voici mes commandes d'aide :tools:")
         .setDescription("Command du bot pour tout serveur ")
         .addField("**:octagonal_sign: - MODERATION**", "``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
-        .addField("**:confetti_ball: - FUN**", "``$say``, ``$ping``, ``$bar``, ``$avatar<mention>``, ``$pileouface``, ``$joke``, ``$xenolda question?``")
+        .addField("**:confetti_ball: - FUN**", "``$say``, ``$ping``, ``$bar``, ``$lovecalc``, ``$avatar<mention>``, ``$pileouface``, ``$joke``, ``$xenolda question?``")
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$stats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:page_with_curl: - TICKET**", "``$new``, ``$close``")
@@ -355,7 +355,52 @@ bot.on('message', message =>{
         });
     }
 
+    
+    function random(min, max){
+        min = Math.ceil(0);
+        max = Math.floor(100);
+        randlovecalc = Math.floor(Math.random() * (max - min +1)+ min);
+    }
 
+    if(message.content === "$lovecalc"){
+        message.reply("Merci d'utiliser la commande correctement avec ``$lovecalc <utilisateur>``")
+      }else{
+        if(message.content.startsWith("$lovecalc")){
+          random()
+          let lovecal = String(randlovecalc)
+          let memberd = message.mentions.members.first()
+          var colorlove = "RANDOM"
+          var textlove = "abc"
+          var imglove = ".jpg"
+          if(randlovecalc >= 85){
+            colorlove = "#00FF00"
+            textlove = "A croire qu'ils sont fait l'un pour l'autre !"
+            imglove = "https://cdn.discordapp.com/attachments/506983307897077770/546687125861433344/tumblr_n5rfnvvj7H1t62gxao1_500.gif"
+          }
+          if((randlovecalc < 85) && (randlovecalc >= 50)){
+            colorlove = "#FFA500"
+            textlove ="Qui ne tente rien n'a rien."
+            imglove = "https://cdn.discordapp.com/attachments/506983307897077770/546691835360182282/p.gif"
+          }
+          
+          if((randlovecalc < 50) && (randlovecalc >= 25)){
+            colorlove = "#FFA500"
+            textlove ="Qui ne tente rien n'a rien."
+            imglove = "https://cdn.discordapp.com/attachments/506983307897077770/546687046450937869/tenor.gif"
+          }
+          if((randlovecalc < 25) && (randlovecalc >= 1)){
+            colorlove = "#FF0000"
+            textlove = "Rien à faire.. Clairement."
+            imglove = "https://cdn.discordapp.com/attachments/506983307897077770/546687127207804929/giphy.gif"
+          }
+          var embedlove = new Discord.RichEmbed()
+          .setColor(`${colorlove}`)
+          .setDescription(`Le love score de ${message.author} avec ${memberd} est de ${lovecal} :heartbeat: !!. \n ${textlove}`)
+          .setImage(`${imglove}`)
+          setTimeout(() => {message.channel.sendMessage("``Exécution => Test.exe``");}, 60 * 14)
+        setTimeout(() => {message.channel.sendMessage("``Test des différents facteurs relationnels``");}, 60 * 20)
+        setTimeout(() => { message.channel.sendEmbed(embedlove);}, 60 * 35)
+        }};
 
     if(message.content.startsWith(prefix + "sondage1")) {
             if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("Vous n'avez pas les permission !")
