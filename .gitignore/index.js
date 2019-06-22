@@ -140,7 +140,7 @@ bot.on('message', message =>{
         .setDescription("Command du bot pour tout serveur ")
         .addField("**:octagonal_sign: - MODERATION**", "``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
         .addField("**:confetti_ball: - FUN**", "``$say``, ``$ping``, ``$bar``, ``$avatar<mention>``, ``$pileouface``, ``$joke``, ``$xenolda question?``")
-        .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
+        .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$stats``, ``$serverlist``, ``$info``, ``$invite``, ``$help-mute``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:page_with_curl: - TICKET**", "``$new``, ``$close``")
         .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``, ``$music-help``")
@@ -162,12 +162,13 @@ bot.on('message', message =>{
 
         
 
-        case "userstats":
+        case "stats":
         var userCreateData = message.author.createdAt.toString().split(" ");
         var msgauthor = message.author.id;
         var stast_embed = new Discord.RichEmbed()
       .setColor("#40A497")
       .setTitle(`Stastistiques de l'utilisateur : ${message.author.username}`)
+      .setDescription('en dev...')
       .addField(`ID de l'utilisateur :id:`, msgauthor, true)
       .addField("Date de création de l'utilisateur :", userCreateData[1] + ' ' + userCreateData[2] + ' ' + userCreateData[3])
       .setThumbnail(message.author.avatarURL)
@@ -635,6 +636,28 @@ function random(min,max){
         });
     
     }
+  
+      if(message.content.startsWith(prefix + 'userstats')) { 
+        if(message.mentions.members.size == 1) {
+            let member = message.mentions.members.first();
+            var embed = new Discord.RichEmbed()
+                .setThumbnail(member.user.avatarURL)
+                .setColor("#40A497")
+                .setDescription(":information_source: → " + member.user.username + " | ID: (" + member.user.id + ")")
+                .setTitle("Toute les information :")
+                .addField(`Username`, member.user.username)
+                .addField(`ID`, member.user.id)
+                .addField(`Discriminator (#)`, member.user.discriminator)
+                .addField(`Crée`, member.user.createdAt)
+                .addField(`Bot?`, member.user.bot)
+                .addField(`Roles`, member.roles.map(r => r.name).join(', '))
+                .setFooter(`Xenolda by Dhaorix`)
+                .setTimestamp()
+            message.channel.send(embed);
+                }else {
+                    message.reply("mentionne quelqu'un...")
+                };
+            }
   
 });
 
