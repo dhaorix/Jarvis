@@ -190,103 +190,54 @@ bot.on('message', message =>{
            return message.reply("Merci de me poser une question :8ball:")
         };
         var replys = [
-
             "oui",
-
             "non",
-
             "peut être",
-
             "je sais pas",
-
             "hahahaha mdr lui",
-
             "demande a mon maître",
-
             "sa peut dépendre de toi :)",
-
             "si tu veux...",
-
             "sûrment pas !",
-
             "fait voir un peut :joy:",
-
             "azy arrete de poser des quetion toi !",
-
             "ce que tu veux !",
-
             "je prèfer répondre a une autre question",
-
             "Mais si c'est possible avec la carte kiwi !",
-
             "alors la !",
-
             "mais non tes bete toi",
-
             "t'aime l'orthographe ? car tu devrais prendre des cours !",
-
             "je suis malade",
-
             "lol",
-
             "nop",
-
             "yep",
-
             "||blc frere||",
-
             "j'repond pas au kikoo de fornith",
-
             "ok mais non",
-
             "pas besoin",
-
             "mouai",
-
             "moi j'aime dhaorix",
-
             "trop raison toi ;)",
-
             "vive lucifer, vivre dhaorix :smiling_imp:",
-
             "ecoute je m'en fou ok",
-
             "je suis mechant mais je vais changer",
-
             "j'aime tlm moi",
-
             "ouuiiiiiii",
-
             "dac",
-
             "hum",
-
             "arrete ou je te hack",
-
             "fait pas le malin",
-
             "alors toi tes mon pref",
-
             ":joy:",
-
             "hehehe , a voir...",
-
             "trololol pas compris",
-
             "hrmmmm",
-
             "yes mec",
-
             "bug",
-
             "bah bonjour on peut commencer par sa nan?",
-
             "clap",
-
             "mais!!! tu me soul",
-
             "je suis calme",
-
             "grrrrr, nan rien"
         ];
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
@@ -487,277 +438,125 @@ bot.on('message', message =>{
         });
     }
 
-
-
     if(message.content.startsWith(prefix + "hug")) {
-
         if(message.mentions.members.size == 1) {
-
             let member = message.mentions.users.first().username;
-
             message.channel.send(`**${message.author.username} donne a ${member} un calîn :heart: !**`, {
-
                 file: hugrando_imgs[Math.floor(Math.random() * hugrando_imgs.length)]
-
             });
-
         }else {
-
             message.reply("tu ne peut pas faire un câlin a toi même ;-;")
-
         }
-
     }
-
-  
 
     if(message.content.startsWith(prefix + "neko")) {
-
         message.channel.send(`**${message.author.username} regarde du neko **`, {
-
             file: nekorando_imgs[Math.floor(Math.random() * nekorando_imgs.length)]
-
         });
-
     }
-
-
 
     if(message.content.startsWith(prefix + "kiss")) {
-
         if(message.mentions.members.size == 1) {
-
             let member = message.mentions.users.first().username;
-
             message.channel.send(`**${message.author.username} fait un bisou a ${member} :lips: !**`, {
-
                 file: kissrando_imgs[Math.floor(Math.random() * kissrando_imgs.length)]
-
             });
-
         }else {
-
             message.reply("tu ne peut pas faire un bisou a toi même ;-;")
-
         }
-
     }
-
-  
 
     if(message.content.startsWith(prefix + "hentai")) {
-
         if (!message.channel.nsfw) return message.channel.send("Tu n'est pas dans un salon NSFW")       
-
             message.channel.send(`${message.author} regarde du hentai :eyes: !`, {
-
             file: hentairando_imgs[Math.floor(Math.random() * hentairando_imgs.length)]
-
         });
-
     }
   
-
         if(message.content.startsWith(prefix + 'joke')){
-
         random();
-
         var fun_embed = new Discord.RichEmbed()
-
         if (randnum==0){
-
             fun_embed.addField("C'est l'histoire du ptit dej, vous la connaissez ?","Pas de bol.")
-
         }
-
         if (randnum==1){
-
             fun_embed.addField("Comment appelle-t-on un chien qui n'a pas de pattes ?","- On l'appelle pas, on va le chercher...")
-
         }
-
         if (randnum==2){
-
             fun_embed.addField("Tu connais la définition d'un déséquilibré sexuel ?","C'est un mec qui bande et qui tombe en avant...")
-
         }
-
         if (randnum==3){
-
             fun_embed.addField("Quel bruit faisait la montre d'Adolf Hitler ?","Dik-tat dik-tat dik-tat")
-
         }
-
         if (randnum==4){
-
             fun_embed.addField("Que dit une fesse droite à une fesse gauche ?","-Ca va chier entre nous !")
-
         }
-
         if (randnum==5){
-
             fun_embed.addField("Un jour Dieu dit à Casto de ramer. ","Et depuis, castorama...")
-
         }
-
         message.channel.sendEmbed(fun_embed);
-
     }
-
-
 
   var randlovecalc = 0
-
 function random(min,max){
-
     min=Math.ceil(0);
-
     max=Math.floor(5);
-
     randnum=Math.floor(Math.random()*(max-min+1)+min);
-
 }
 
-
-
     if(message.content.startsWith(prefix + 'pileouface')) {
-
-        
-
         res=getRandomInt(2)
-
         if(res==0){
-
             message.channel.send("Pile");
-
         }
-
         if(res==1){
-
             message.channel.send("Face");
-
         }
-
     }
-
     function getRandomInt(max) {
-
         return Math.floor(Math.random() * Math.floor(max));
-
       }
 
-  
-
         if (message.content.startsWith(prefix + 'ping')) {
-
         message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
-
     }
 
-
-
         if(message.content.startsWith(prefix + 'avatar')) {
-
         let membreAvatarURL;
-
         let membreName;
-
         try {
-
             membreAvatarURL = message.mentions.users.first().avatarURL;
-
             membreName = message.mentions.users.first().username;
-
         }catch (e) {
-
             membreAvatarURL = message.author.avatarURL;
-
             membreName = message.author.username;
-
         }
-
-
-
         const embedAvatar = new Discord.RichEmbed()
-
             .setColor('#40A497')
-
             .setAuthor(bot.user.username, bot.user.avatarURL)
-
             .setDescription("Photo de profil de l'utilisateur")
-
             .addField("Photo profil", membreName)
-
             .setImage(`${membreAvatarURL}`)
-
             .setTimestamp()
-
             .setFooter(`Xenolda by Dhaorix`)
-
             .setTimestamp()
-
         message.channel.send(embedAvatar);
-
     }  
 
-  
-
       if (message.content.toLowerCase().startsWith(prefix + `new-ticket`)) {
-
-
-
         const reason = message.content.split(" ").slice(1).join(" ");
-
-    
-
         //if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
-
-    
-
         if (message.guild.channels.exists("name", "ticket-" + message.author.username)) return message.channel.send(`You already have a ticket open.`);
-
-    
-
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-
-    
-
             let role = message.guild.roles.find("name", "Support Team");
-
-    
-
             let role2 = message.guild.roles.find("name", "@everyone");
-
-    
-
             c.overwritePermissions(role, {
-
-    
-
                 SEND_MESSAGES: true,
-
-    
-
                 READ_MESSAGES: true
-
-    
-
             });
-
-    
-
             c.overwritePermissions(role2, {
-
-    
-
                 SEND_MESSAGES: false,
-
-    
-
                 READ_MESSAGES: false
-
-    
-
             });
 
     
