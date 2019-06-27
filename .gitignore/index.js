@@ -170,7 +170,7 @@ bot.on('guildMemberAdd', member =>{
 
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
 
-    member.guild.channels.get('410498158246887434').send(embed)
+    member.guild.channels.get('410498158246887434').sendMessage(embed)
 
     member.addRole('410494803680428042')
 
@@ -188,7 +188,7 @@ bot.on('guildMemberRemove', member =>{
 
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
 
-    member.guild.channels.get('410498158246887434').send(embed)
+    member.guild.channels.get('410498158246887434').sendMessage(embed)
 
 });
 
@@ -250,7 +250,7 @@ bot.on('message', message =>{
 
         .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``, ``$music-help``")
 
-        .addField("**:notes: - MUSIC**", "``voir le **En stram**``")
+        .addField("**:notes: - MUSIC**", "``voir le **En stream**``")
 
         .addField("◽◽◽◽◽◽", "[▶Inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8) | [▶Mon Discord](https://discord.gg/drhupWN)")
         .setFooter(`Xenolda by Dhaorix`)
