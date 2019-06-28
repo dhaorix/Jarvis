@@ -7,7 +7,7 @@ bot.on('ready', function () {
   console.log("Je suis connecté !")
 });
 
-bot.login(process.env.TOKEN)
+bot.login("NDg0MDg5MzUxMDUxOTM1NzQ2.D1xJrw.-MvBA2EwydLoKvsOjRh6Rv2wCFA")
 
 const hugrando_imgs = [
     'https://i.pinimg.com/736x/6d/b2/3d/6db23d091b9cde457e1b3753804d578e.jpg',
