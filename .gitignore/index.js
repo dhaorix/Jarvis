@@ -88,7 +88,7 @@ bot.on('guildMemberAdd', member =>{
         .setColor("#40A497")
         .setDescription(':tada: **' + member.user.username + '** a rejoint ' + member.guild.name)
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
-    member.guild.channels.get('410498158246887434').sendMessage(embed)
+    member.guild.channels.get('410498158246887434').send(embed)
     member.addRole('410494803680428042')
 });
 
@@ -97,7 +97,7 @@ bot.on('guildMemberRemove', member =>{
          .setColor("#40A497")
         .setDescription(':cry: **' + member.user.username + '** a quitté ' + member.guild.name)
         .setFooter('Nous sommes désormais ' + member.guild.memberCount)
-    member.guild.channels.get('410498158246887434').sendMessage(embed)
+    member.guild.channels.get('410498158246887434').send(embed)
 });
 
 bot.on("message", message => {
