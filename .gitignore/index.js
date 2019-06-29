@@ -133,14 +133,22 @@ bot.on('message', message =>{
         .setTimestamp()
         message.channel.sendMessage(help_embed);  
     }
+  
+      if(message.content === "$serverlist") {
+
+        if (message.author.id != "278647337121873930") {
+    
+          return message.channel.send("You not my owner")
+    
+      }
+    
+      message.channel.send(bot.guilds.map(r => r.name + ` | **${r.memberCount}** membres`))
+    
+        }
 
     if (!message.content.startsWith(prefix)) return
     var args = message.content.substring(prefix.length).split(" ");
     switch (args[0].toLowerCase()) {
-
-        case"serverlist":
-        message.channel.send(bot.guilds.map(r => r.name + ` | **${r.memberCount}** membres`))
-        break;
 
         case "stats":
         var userCreateData = message.author.createdAt.toString().split(" ");
