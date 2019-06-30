@@ -112,8 +112,9 @@ bot.on('message', message =>{
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$stats``, ``$serverlist``, ``$servinfo``, ``$invite``, ``$help-mute``, ``$new-ticket``, ``$close``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``, ``$music-help``")
-        .addField("**:notes: - MUSIC**", "``voir le **En stream**``")
-        .addField("◽◽◽◽◽◽", "[▶Inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8) | [▶Mon Discord](https://discord.gg/drhupWN)")
+        .addField("**:notes: - MUSIC**", "``$add``, ``$play``, ``$queue``, ``$join``, ``$pause``, ``$resume``, ``$skip``, ``$time``, ``$volume``")
+
+        .addField("◽◽◽◽◽◽", "[▶Inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8) | [▶Mon Support](https://discord.gg/drhupWN) | [▶Voter pour le bot](https://discordbots.org/bot/484089351051935746)")
         .setFooter(`Xenolda by Dhaorix`)
         .setTimestamp()
         message.channel.sendMessage(help_embed);  
