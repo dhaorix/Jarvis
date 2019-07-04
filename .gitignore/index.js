@@ -5,10 +5,23 @@ const yt = require('ytdl-core');
 var opus = require('opusscript');
 var prefix = "$"
 
-bot.on('ready', function () {
-  bot.user.setActivity(`$help | ${bot.guilds.size} serveurs`, { type: 'WATCHING' });
-  console.log("Je suis connecté !")
-});
+try {
+function changing_status() {
+    const status = [
+      `$help | ${bot.guilds.size} serveurs`,
+      `$maj | Dernière nouveaté`,
+      `$help | ${bot.users.size} utilisateus`,
+   
+    ];
+    const random = status[Math.floor(Math.random() * status.length)];
+    bot.user.setActivity(random, {
+        type: "WATCHING"
+    });
+}
+setInterval(changing_status, 20000);
+} catch (error) {
+console.log(error)
+}
 
 bot.login(process.env.TOKEN)
 
