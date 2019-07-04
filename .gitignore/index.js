@@ -770,7 +770,9 @@ const commands = {
 
 				msg.member.voiceChannel.leave();
 
-			});
+			}).catch(function(){
+
+         		});
 
 			msg.channel.sendMessage(`Playing: **${song.title}** as requested by: **${song.requester}**`);
 
