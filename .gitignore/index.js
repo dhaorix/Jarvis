@@ -107,7 +107,7 @@ bot.on('message', message =>{
         .setThumbnail(bot.user.avatarURL)
         .setTitle(":tools: Voici mes commandes :tools:")
         .setDescription("**Command du bot pour tout serveur. C'est un bot qui peut faire beaucoup de chose**")
-        .addField("**:octagonal_sign: - MODERATION**", "``$say``, ``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
+        .addField("**:octagonal_sign: - MODERATION**", "``$say``, ``$giveaways``, ``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
         .addField("**:confetti_ball: - FUN**", "``$ping``, ``$bar``, ``$lovecalc``, ``$avatar<mention>``, ``$pileouface``, ``$joke``, ``$xenolda question?``")
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$stats``, ``$serverlist``, ``$servinfo``, ``$invite``, ``$help-mute``, ``$new-ticket``, ``$close``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
@@ -526,121 +526,36 @@ function random(min,max){
     
 
             message.channel.send(`:white_check_mark: Le ticket a bien été crée , #${c.name}.`);
-
-    
-
             const embed = new Discord.RichEmbed()
-
-    
-
             .setColor(0xCF40FA)
-
-    
-
             .addField(`Hey ${message.author.username}!`, `Un Administrateur ou un modo viendra bientôt a vous ! Patienter quelque instant...`)
-
-    
-
             .setTimestamp();
-
-    
-
             c.send({ embed: embed });
-
-    
-
         }).catch(console.error);
-
-    
-
     }
 
 
-
-
-
-    
-
     if (message.content.toLowerCase().startsWith(prefix + `close`)) {
-
-    
-
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
-
-    
-
-    
-
-    
-
         message.channel.send(`Etes vous sûr? Confirmer pour fermer le ticket : \nTo confirm, type \`-confirm\`. Vous avez 10 seconde, après le délai, le message sera supprimé.`)
-
-    
-
         .then((m) => {
-
-    
-
           message.channel.awaitMessages(response => response.content === '-confirm', {
-
-    
-
             max: 1,
-
-    
-
             time: 10000,
-
-    
-
             errors: ['time'],
-
-    
-
           })
-
-    
-
           .then((collected) => {
-
-    
-
               message.channel.delete();
-
-    
-
             })
-
-    
-
             .catch(() => {
-
-    
-
               m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
-
-    
-
                   m2.delete();
-
-    
-
               }, 3000);
-
-    
-
             });
-
-    
-
         });
-
-    
-
     }
 
   
-
       if(message.content.startsWith(prefix + 'userstats')) { 
         if(message.mentions.members.size == 1) {
             let member = message.mentions.members.first();
@@ -663,6 +578,84 @@ function random(min,max){
                 };
             }
 });
+
+bot.on("message", async message => {
+
+if(message.content.startsWith(prefix + "giveaways")) {
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("```❌ | ERREUR : Vous n'avez pas les permission```") 
+    var messageArray = message.content.split(" ");
+    var time;
+    var gagnant;
+        gagnant = Number(messageArray[1]);      
+        if(!gagnant) return message.reply("```❌ | ERREUR : Vous devez définir le nombre de gagnant```")
+     if(isNaN(gagnant)) return message.reply("```❌ | ERREUR : Vous devez définir le nombre de gagnant```")
+        time = Number(messageArray[2]);
+        if(!time) return message.reply("```❌ | ERREUR : Vous devez définir la durée du giveaway en heure(s)```")
+        if(isNaN(time)) return message.reply("```❌ | ERREUR : Vous devez définir la durée du giveaway en heure(s)```")
+ 
+    let item = message.content.split(" " + gagnant + " " + time + " ").slice(1);
+            if(!item) return message.reply("```❌ | ERREUR : Vous devez définir la récompense```");
+ 
+            let msg = ""
+            let member = message.author
+            var embedgiveaway = new Discord.RichEmbed()
+            .setColor("#40A497")
+            .setTitle(":tada: GIVEAWAY :tada: ") 
+            .setDescription(`Réagissez avec :tada: pour participer\n`)
+            .addField("Récompence :", `${item}`)
+            .addField("Fin du Giveaway dans : ", `**${time}** heures`, true)
+            .setFooter(`${gagnant} Gagnants`)
+            .setTimestamp()
+            message.delete().catch(O_o=>{}); 
+            message.channel.send(embedgiveaway).then(message => {
+                message.react("🎉")
+                msg = message
+            })
+            setTimeout(() => {
+                message.reactions.clear(bot.user)
+            }, 1000);
+ 
+            setTimeout(function() {
+                msg.reactions.forEach(r=>r.remove(client.user));
+                var peopleReacted = msg.reactions.get("🎉").users.array(); // vÈrification des users dans la liste des rÈacts
+                var winners = msg.reactions.get("🎉").users.size
+                var inodex = Math.floor(Math.random() * peopleReacted.length); // tirage au sort
+              
+                var ggg = [];
+                var gggmessage = "";  
+                for (var i = 0; i < gagnant; i++){
+                    ggg.push(peopleReacted[inodex]);
+                    inodex = Math.floor(Math.random() * peopleReacted.length);
+                }
+                for (var i = 0; i < ggg.length; i++){
+                    if (ggg[i].id === bot.user.id){
+                    ggg.slice(i, 1);
+                    continue;
+                }
+                gggmessage += (ggg[i].toString() + " ");
+             }
+                var haveHas = "a";
+                var Win = "Nouveau gagnant"
+                if (ggg.length == 1){
+                    haveHas = " tu viens de gagner : ";
+                var Win = "Nouveau gagnant";
+                }else{
+                    haveHas = " vous venez de gagner : ";
+                    var Win = "Nouveaux gagnants";
+                }
+                let gigg = ggg
+             
+                if(gagnant > winners) {
+                    message.reply("Malheureusement, pas assez de personnes ont pu être sélectionnées,\nVous avez demandé `" + gagnant + "` gagnants mais vous n'avez eu que `" + winners + "` participants")
+                    return;
+                }
+                var embed = new Discord.RichEmbed()
+                .setColor("006633")
+                .setTitle(":tada: **GIVEAWAY TERMINÉ** :tada:")
+                .setDescription("Bravo " + gigg  + haveHas + " " + `${item}`)
+                message.channel.send(embed)
+            }, time * 3600000);
+    }});
 
 bot.on("message", async message => {
 
