@@ -807,7 +807,7 @@ const commands = {
 
 					msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
 
-				} else if (m.content.startsWith(tokens.prefix + 'time')){
+				} else if (m.content.startsWith(prefix + 'time')){
 
 					msg.channel.sendMessage(`time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
 
