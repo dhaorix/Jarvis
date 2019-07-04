@@ -125,7 +125,6 @@ bot.on('message', message =>{
         .addField("**:confetti_ball: - FUN**", "``$ping``, ``$bar``, ``$lovecalc``, ``$avatar<mention>``, ``$pileouface``, ``$joke``, ``$xenolda question?``")
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userstats``, ``$stats``, ``$serverlist``, ``$servinfo``, ``$invite``, ``$help-mute``, ``$new-ticket``, ``$close``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
-        .addField("**:space_invader: - EN STREAM**", "command quand le bot et en stream :``$level``, ``$money``, ``$music-help``")
         .addField("**:notes: - MUSIC**", "``$add``, ``$play``, ``$queue``, ``$join``, ``$pause``, ``$resume``, ``$skip``, ``$time``, ``$volume``")
 
         .addField("◽◽◽◽◽◽", "[▶Inviter le bot](https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8) | [▶Mon Support](https://discord.gg/drhupWN) | [▶Voter pour le bot](https://discordbots.org/bot/484089351051935746) | [▶Faire un Dons](https://discordbots.org/bot/484089351051935746)")
