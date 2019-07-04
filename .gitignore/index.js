@@ -93,12 +93,6 @@ bot.on('message', message => {
     }
 });
 
-bot.on('message', message => {
-    if (message.content === prefix + "invite") {
-     message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8" )
-    }
-});
-
 bot.on("message", message => {
     if (!message.guild) return
     let args = message.content.trim().split(/ +/g)
@@ -114,6 +108,20 @@ bot.on("message", message => {
     }});
 
 bot.on('message', message =>{
+	
+	if(message.content.startsWith(prefix + 'maj')) {
+        var embedmarriage = new Discord.RichEmbed()
+        .setColor('#40A497')
+        .setTitle("Maj Info Xenolda **V2.1**")
+        .setDescription("----------------------")
+        .addField("Nouveauté :", "$giveaways ! giveaways enfin la !")
+        .addField("Arrive :", "vous pourrez bientôt urtilisé le $help sur les command ex: $help sondage(savoir a quoi sert et comment on fait un sondage")
+        .addField("Changement :", "---")
+        .setTimestamp()
+        .setFooter(message.author.username);
+        message.delete().catch(O_o=>{});
+        message.channel.send(embedmarriage)
+    } 
 
     if(message.content.startsWith(prefix + 'help')){
         var help_embed = new Discord.RichEmbed()
@@ -250,6 +258,10 @@ bot.on('message', message =>{
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
         message.channel.send(message.reply(reponse))
     }
+	
+	    if (message.content === prefix + "invite") {
+     message.reply("invite moi sur plusieur serveur : https://discordapp.com/oauth2/authorize?client_id=484089351051935746&scope=bot&permissions=8" )
+    }
 
     if(message.content.startsWith(prefix + "unmute")) {
         if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.channel.send("```❌ | ERREUR : Vous n'avez pas les permission```");
@@ -374,6 +386,7 @@ bot.on('message', message =>{
         if(!reportschannel) return message.channel.send("```❌ | ERREUR : Je ne trouve pas le salon *report*```");
         message.delete().catch(O_o=>{});
         reportschannel.send(report_embed);
+	message.reply("Ton report sera pris en charge par le staff.")
         return;
     }
 
