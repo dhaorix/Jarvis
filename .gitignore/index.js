@@ -680,7 +680,7 @@ if(message.content.startsWith(prefix + "giveaways")) {
                 .setTitle(":tada: **GIVEAWAY TERMINÉ** :tada:")
                 .setDescription("Bravo " + gigg  + haveHas + " " + `${item}`)
                 message.channel.send(embed)
-            }, time * 3600000);
+            }, MS(time));
     }});
 
 bot.on("message", async message => {
