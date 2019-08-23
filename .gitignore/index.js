@@ -343,7 +343,7 @@ bot.on('message', message =>{
             })
     
         }())
-    }}}
+    }
 
     if(message.content === prefix + "servinfo") {
         var info_embed = new Discord.RichEmbed()
