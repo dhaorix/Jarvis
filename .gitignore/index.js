@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const ms = require("ms");
 const yt = require('ytdl-core');
+const moment = require('moment');
 var opus = require('opusscript');
 var prefix = "$"
 
