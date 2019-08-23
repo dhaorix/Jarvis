@@ -146,9 +146,9 @@ bot.on('message', message =>{
         .setColor('#40A497')
         .setTitle("Maj Info Xenolda **V2.1**")
         .setDescription("----------------------")
-        .addField("Nouveauté :", "$giveaways ! giveaways enfin la !")
-        .addField("Arrive :", "vous pourrez bientôt urtilisé le $help sur les command ex: $help sondage(savoir a quoi sert et comment on fait un sondage")
-        .addField("Changement :", "---")
+        .addField("Nouveauté :", "$lovecalc/ $lc ")
+        .addField("Arrive :", "---")
+        .addField("Changement :", "le : $userinfo, $serverlist, $servinfo")
         .setTimestamp()
         .setFooter(message.author.username);
         message.delete().catch(O_o=>{});
@@ -177,21 +177,6 @@ bot.on('message', message =>{
     if (!message.content.startsWith(prefix)) return
     var args = message.content.substring(prefix.length).split(" ");
     switch (args[0].toLowerCase()) {
-
-        case "stats":
-        var userCreateData = message.author.createdAt.toString().split(" ");
-        var msgauthor = message.author.id;
-        var stast_embed = new Discord.RichEmbed()
-        .setColor("#40A497")
-        .setTitle(`Stastistiques de l'utilisateur : ${message.author.username}`)
-        .addField(`ID de l'utilisateur :id:`, msgauthor, true)
-        .addField("Date de création de l'utilisateur :", userCreateData[1] + ' ' + userCreateData[2] + ' ' + userCreateData[3])
-        .setThumbnail(message.author.avatarURL)
-        .setFooter(`Xenolda by Dhaorix`)
-        .setTimestamp()
-      message.reply("Va dans tes message privé ! tu viens de recevoir tes statistique !(command en dev)")
-      message.author.send({embed: stast_embed});
-      break;
 
         case "bar":
       var replys = [
@@ -702,27 +687,26 @@ bot.on('message', message =>{
     }
 
   
-      if(message.content.startsWith(prefix + 'userstats')) { 
-        if(message.mentions.members.size == 1) {
-            let member = message.mentions.members.first();
-            var embed = new Discord.RichEmbed()
-                .setThumbnail(member.user.avatarURL)
-                .setColor("#40A497")
-                .setDescription(":information_source: → " + member.user.username + " | ID: (" + member.user.id + ")")
-                .setTitle("Toute les information :")
-                .addField(`Username`, member.user.username)
-                .addField(`ID`, member.user.id)
-                .addField(`Discriminator (#)`, member.user.discriminator)
-                .addField(`Crée`, member.user.createdAt)
-                .addField(`Bot?`, member.user.bot)
-                .addField(`Roles`, member.roles.map(r => r.name).join(', '))
-                .setFooter(`Xenolda by Dhaorix`)
-                .setTimestamp()
-            message.channel.send(embed);
-                }else {
-                    message.reply("mentionne quelqu'un...")
-                };
-            }
+         if(message.content.startsWith(prefix + 'userinfo')){
+        let member = message.mentions.members.first() || message.member,
+        user = member.user;
+    const joinDiscord = moment(user.createdAt).format('llll');
+    const joinServer = moment(user.joinedAt).format('llll');
+    let embed = new Discord.RichEmbed()
+        .setAuthor(user.username + '#' + user.discriminator, user.displayAvatarURL)
+        .setDescription(`${user}`)
+        .setColor(`#40A497`)
+        .setThumbnail(`${user.displayAvatarURL}`)
+        .addField('Created at:', `${moment.utc(user.createdAt ).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
+        .addField('Joined at:', `${moment.utc(user.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`, true)
+        .addField('Status:', user.presence.status, true)
+        .addField('Roles:', member.roles.map(r => `${r}`).join(' | '), true)
+        .setFooter(`ID: ${user.id}`)
+        .setTimestamp();
+
+    message.channel.send({ embed: embed });
+    return;
+}
 });
 
 bot.on("message", async message => {
