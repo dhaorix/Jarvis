@@ -94,19 +94,13 @@ bot.on('message', message => {
     }
 	
 	const replys = require('./reply.json');
-    if(message.content.startsWith(prefix + 'xenold')){
+    if(message.content.startsWith(prefix + 'xenolda')){
     let args = message.content.split(" ").slice(1);
-
         let tte = args.join(" ")
-
         if (!tte){
-
            return message.reply("Merci de me poser une question :8ball:")
-
         };
-
         let reponse = (replys[Math.floor(Math.random() * replys.length)])
-
         message.channel.send(message.reply(reponse))
     }
 });
@@ -159,13 +153,8 @@ bot.on('message', message =>{
         .setTimestamp()
         message.channel.sendMessage(help_embed);  
     }
-  
 
-    if (!message.content.startsWith(prefix)) return
-    var args = message.content.substring(prefix.length).split(" ");
-    switch (args[0].toLowerCase()) {
-
-        case "bar":
+  if(message.content.startsWith(prefix + "bar")) {
       var replys = [
           ":baby_bottle:whisky",
           ":beer: bière",
@@ -189,67 +178,6 @@ bot.on('message', message =>{
       .setFooter(`Xenolda by Dhaorix`)
       .setTimestamp()
       message.channel.sendMessage(bar_embed) 
-      break; 
-
-        case "xenolda":
-        let args = message.content.split(" ").slice(1);
-        let tte = args.join(" ")
-        if (!tte){
-           return message.reply("Merci de me poser une question :8ball:")
-        };
-        var replys = [
-            "oui",
-            "non",
-            "peut être",
-            "je sais pas",
-            "hahahaha mdr lui",
-            "demande a mon maître",
-            "sa peut dépendre de toi :)",
-            "si tu veux...",
-            "sûrment pas !",
-            "fait voir un peut :joy:",
-            "azy arrete de poser des quetion toi !",
-            "ce que tu veux !",
-            "je prèfer répondre a une autre question",
-            "Mais si c'est possible avec la carte kiwi !",
-            "alors la !",
-            "mais non tes bete toi",
-            "t'aime l'orthographe ? car tu devrais prendre des cours !",
-            "je suis malade",
-            "lol",
-            "nop",
-            "yep",
-            "||blc frere||",
-            "j'repond pas au kikoo de fornith",
-            "ok mais non",
-            "pas besoin",
-            "mouai",
-            "moi j'aime dhaorix",
-            "trop raison toi ;)",
-            "vive lucifer, vivre dhaorix :smiling_imp:",
-            "ecoute je m'en fou ok",
-            "je suis mechant mais je vais changer",
-            "j'aime tlm moi",
-            "ouuiiiiiii",
-            "dac",
-            "hum",
-            "arrete ou je te hack",
-            "fait pas le malin",
-            "alors toi tes mon pref",
-            ":joy:",
-            "hehehe , a voir...",
-            "trololol pas compris",
-            "hrmmmm",
-            "yes mec",
-            "bug",
-            "bah bonjour on peut commencer par sa nan?",
-            "clap",
-            "mais!!! tu me soul",
-            "je suis calme",
-            "grrrrr, nan rien"
-        ];
-        let reponse = (replys[Math.floor(Math.random() * replys.length)])
-        message.channel.send(message.reply(reponse))
     }
 	
 	    if (message.content === prefix + "invite") {
