@@ -764,7 +764,29 @@ if(message.content.startsWith(prefix + "giveaways")) {
             }, ms(time));
     }});
 
+    const { randomRange } = require('./Util.js');
+    const fishes = require('./fishy.json');
 bot.on("message", async message => {
+	
+	if(msg.content.startsWith(prefix + 'fishy')){
+    const fishID = Math.floor(Math.random() * 10) + 1;
+
+    let rarity;
+
+    if (fishID < 5) rarity = 'junk';
+
+    else if (fishID < 8) rarity = 'common';
+
+    else if (fishID < 10) rarity = 'uncommon';
+
+    else rarity = 'rare';
+
+    const fish = fishes[rarity];
+
+    const worth = randomRange(fish.min, fish.max);
+
+    return msg.reply(`Vous avez attrapé un ${fish.symbol}. Je parie qu'il vendrait pour environ $${worth}.`);
+}
 
   if(message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
