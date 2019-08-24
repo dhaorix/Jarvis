@@ -94,7 +94,7 @@ bot.on('message', message => {
     }
 	
 	const replys = require('./reply.json');
-    if(msg.content.startsWith(prefix + 'xenold')){
+    if(message.content.startsWith(prefix + 'xenold')){
     let args = message.content.split(" ").slice(1);
 
         let tte = args.join(" ")
