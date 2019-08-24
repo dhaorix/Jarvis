@@ -467,10 +467,10 @@ bot.on('message', message =>{
         randlovecalc = Math.floor(Math.random() * (max - min +1)+ min);
     }
 
-    if(message.content === "$lovecalc"){
+    if(message.content === "$lovecalc" || "$lc"){
         message.reply("Merci d'utiliser la commande correctement avec ``$lovecalc <utilisateur>``")
       }else{
-        if(message.content.startsWith("$lovecalc")){
+        if(message.content.startsWith("$lc r")){
           random()
           let lovecal = String(randlovecalc)
           let memberd = message.mentions.members.first()
