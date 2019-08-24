@@ -92,6 +92,23 @@ bot.on('message', message => {
   }
   message.channel.send("Welcome my owner")
     }
+	
+	const replys = require('./reply.json');
+    if(msg.content.startsWith(prefix + 'xenold')){
+    let args = message.content.split(" ").slice(1);
+
+        let tte = args.join(" ")
+
+        if (!tte){
+
+           return message.reply("Merci de me poser une question :8ball:")
+
+        };
+
+        let reponse = (replys[Math.floor(Math.random() * replys.length)])
+
+        message.channel.send(message.reply(reponse))
+    }
 });
 
 
