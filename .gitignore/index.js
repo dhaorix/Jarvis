@@ -483,6 +483,13 @@ bot.on('message', message =>{
             file: hentairando_imgs[Math.floor(Math.random() * hentairando_imgs.length)]
         });
     }
+	
+	if(message.content.startsWith(prefix + 'chance')){
+	let chance;
+	const loss = Math.floor(Math.random() * chance);
+	if (!loss) return message.reply("C'est un beau boulot ! 10/10! Tu mérites un gâteau !");
+	return message.reply('Nope, sorry, you lost.');
+	}
   
         if(message.content.startsWith(prefix + 'joke')){
         random();
