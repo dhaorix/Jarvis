@@ -764,11 +764,42 @@ if(message.content.startsWith(prefix + "giveaways")) {
             }, ms(time));
     }});
 
+
+    const { stripIndents } = require('common-tags');
+const slots = ['🍇', '🍊', '🍐', '🍒', '🍋'];
     const { randomRange } = require('./Util.js');
     const fishes = require('./fishy.json');
-bot.on("message", async message => {
+bot.on("message", async msg => {
+
+	 if(msg.content.startsWith(prefix + 'slot')){
+
+        const slotOne = slots[Math.floor(Math.random() * slots.length)];
+
+		const slotTwo = slots[Math.floor(Math.random() * slots.length)];
+
+		const slotThree = slots[Math.floor(Math.random() * slots.length)];
+
+		if (slotOne === slotTwo && slotOne === slotThree) {
+
+			return msg.reply(stripIndents`
+
+				${slotOne}|${slotTwo}|${slotThree}
+
+				ouah! Tu as gagné ! Excellent travail... euh... chance!
+
+			`);
+
+		}
+
+		return msg.reply(stripIndents`
+
+			${slotOne}|${slotTwo}|${slotThree}
+
+			aw... Vous avez perdu... Je suppose que c'est juste de la malchance, hein ?
+		`);
+    }
 	
-	if(msg.content.startsWith(prefix + 'fishy')){
+if(msg.content.startsWith(prefix + 'fishy')){
     const fishID = Math.floor(Math.random() * 10) + 1;
 
     let rarity;
@@ -787,6 +818,10 @@ bot.on("message", async message => {
 
     return msg.reply(`Vous avez attrapé un ${fish.symbol}. Je parie qu'il vendrait pour environ $${worth}.`);
 }
+
+});
+bot.on("message", async message => {
+
 
   if(message.content.indexOf(prefix) !== 0) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
