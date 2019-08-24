@@ -132,7 +132,7 @@ bot.on('message', message =>{
         .setTitle(":tools: Voici mes commandes :tools:")
         .setDescription("**C'est un bot avec tout les command utile dons vous avez besoin aussi avec du fun !**")
         .addField("**:octagonal_sign: - MODERATION**", "``$say``, ``$giveaways``, ``$kick``, ``$ban``, ``$mute<mention>``, ``$unmute<mention>``, ``$tempmute``, ``$clear<nombre>``, ``$sondage<1ou2>``")
-        .addField("**:confetti_ball: - FUN**", "``$ping``, ``$bar``, ``$lovecalc``, ``$avatar<mention>``, ``$chance``,``$pileouface``, ``$joke``, ``$xenolda question?``")
+        .addField("**:confetti_ball: - FUN**", "``$ping``, ``$bar``, ``$chance``, ``$lovecalc``, ``$avatar<mention>``, ``$chance``,``$pileouface``, ``$joke``, ``$xenolda question?``")
         .addField("**:notebook_with_decorative_cover: - UTILE**", "``$userinfo``, ``$serverlist``, ``$servinfo``, ``$invite``, ``$new-ticket``, ``$close``, ``$report <mention> <message>``")
         .addField("**:frame_photo: - IMAGE**", "``$kiss``, ``$hug``, ``$neko`` NSFW: ``$hentai``, ``$nude``")
         .addField("**:notes: - MUSIC**", "``$add``, ``$play``, ``$queue``, ``$join``, ``$pause``, ``$resume``, ``$skip``, ``$time``, ``$volume``")
