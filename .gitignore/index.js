@@ -716,7 +716,7 @@ if(message.content.startsWith(prefix + "giveaways")) {
             }, 1000);
  
             setTimeout(function() {
-                msg.reactions.forEach(r=>r.remove(client.user));
+                msg.reactions.forEach(r=>r.remove(bot.user));
                 var peopleReacted = msg.reactions.get("🎉").users.array(); // vÈrification des users dans la liste des rÈacts
                 var winners = msg.reactions.get("🎉").users.size
                 var inodex = Math.floor(Math.random() * peopleReacted.length); // tirage au sort
