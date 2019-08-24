@@ -23,7 +23,6 @@ setInterval(changing_status, 20000);
 } catch (error) {
 console.log(error)
 }
-
 bot.login(process.env.TOKEN)
 
 const hugrando_imgs = [
