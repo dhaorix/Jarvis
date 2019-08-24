@@ -114,11 +114,11 @@ bot.on('message', message =>{
 	if(message.content.startsWith(prefix + 'maj')) {
         var embedmarriage = new Discord.RichEmbed()
         .setColor('#40A497')
-        .setTitle("Maj Info Xenolda **V2.1**")
+        .setTitle("Maj Info Xenolda **V2.3**")
         .setDescription("----------------------")
-        .addField("Nouveauté :", "$lovecalc/ $lc ")
-        .addField("Arrive :", "---")
-        .addField("Changement :", "le : $userinfo, $serverlist, $servinfo")
+        .addField("Nouveauté :", "$chance, $fichy, $slot ")
+        .addField("Arrive :", "autre nouveau jeu arrive et une modif visuel")
+        .addField("Changement :", "aucun")
         .setTimestamp()
         .setFooter(message.author.username);
         message.delete().catch(O_o=>{});
