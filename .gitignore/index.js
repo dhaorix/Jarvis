@@ -277,6 +277,8 @@ bot.on('message', message =>{
     }
 
     if(message.content === prefix + "servinfo") {
+	const joinDiscord = moment(user.createdAt).format('llll');
+    	const joinServer = moment(user.joinedAt).format('llll');
         var info_embed = new Discord.RichEmbed()
         .setColor("#40A497")
         .setTitle("**__Information sur le serveur : __**")
