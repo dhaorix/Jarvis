@@ -214,7 +214,7 @@ bot.on('message', message =>{
             message.channel.send(`${mute.user.username} est mute !`);
         })
     }
-	    if(message.content === "$serverlist") {
+	    if(message.content === "$servlist") {
 	if (message.author.id != "278647337121873930") {
     
           return message.channel.send("You not my owner")
