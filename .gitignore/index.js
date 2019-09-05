@@ -6,7 +6,7 @@ const moment = require('moment');
 var opus = require('opusscript');
 var prefix = "$"
 
-try {
+/*try {
 function changing_status() {
     const status = [
       `$help | ${bot.guilds.size} serveurs`,
@@ -22,7 +22,7 @@ function changing_status() {
 setInterval(changing_status, 20000);
 } catch (error) {
 console.log(error)
-}
+}*/
 bot.login(process.env.TOKEN)
 
 const hugrando_imgs = [
