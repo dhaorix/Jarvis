@@ -82,9 +82,6 @@ const hentairando_imgs = [
 ]
 
 bot.on('message', message => {
-    if(message.content === 'Ping') {
-     message.channel.sendMessage('ta cru toi :joy:');
-    }
     if(message.content === "Hello") {
     if (message.author.id != "278647337121873930") {
       return message.channel.send("You not my owner")
