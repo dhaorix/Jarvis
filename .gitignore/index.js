@@ -52,7 +52,7 @@ bot.on('ready', () => {
   setInterval(changeColor, config.speed);
 });
 
-bot.login("NDQ1MzA1MzM0OTExOTkxODA4.XPeExg.ycTKxoZmKur4O9zygJoPjQTX3U4")
+bot.login(process.env.TOKEN)
 
 bot.on('guildMemberAdd', (member) =>{
   let embed = new Discord.RichEmbed()
