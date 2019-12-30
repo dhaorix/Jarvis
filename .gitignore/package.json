@@ -8,6 +8,7 @@
     "ffmpeg": "^0.0.4",
     "discord.js": "^11.5.1",
     "fs": "^0.0.1-security",
+    "m3u8stream": "0.6.4",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
     "opusscript": "^0.0.6",
