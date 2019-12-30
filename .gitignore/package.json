@@ -1,20 +1,15 @@
 {
   "name": "xenolda",
   "version": "1.0.0",
-  "description": "bot discord",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "common-tags": "^1.8.0",
-    "ffmpeg": "^0.0.4",
     "discord.js": "^11.5.1",
-    "fs": "^0.0.1-security",
-    "m3u8stream": "0.6.4",
+    "moment": "^2.24.0",
+    "opusscript": "^0.0.7",
     "ms": "^2.1.2",
-    "node-fetch": "^2.6.0",
-    "opusscript": "^0.0.6",
-    "path": "^0.12.7",
-    "ytdl-core": "^0.29.2",
-    "moment": "2.24.0"
+    "ytdl-core": "^1.0.5"
   },
   "devDependencies": {},
   "scripts": {
