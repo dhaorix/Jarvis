@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
+const ms = require("ms");
 const yt = require('ytdl-core');
 const moment = require('moment');
 var opus = require('opusscript');
