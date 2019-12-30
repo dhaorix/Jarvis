@@ -325,7 +325,7 @@ bot.on('message', message =>{
     }
 
 
-    if(message.content === prefix + "servinfo") {
+    if(message.content.startsWith(prefix + "servinfo")){
         var info_embed = new Discord.RichEmbed()
         .setColor("#40A497")
         .setTitle("**__Information sur le serveur : __**")
