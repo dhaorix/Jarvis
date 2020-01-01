@@ -28,10 +28,6 @@ setInterval(changing_status, 20000);
 console.log(error)
 }
 
-
-
-bot.login(process.env.TOKEN)
-
 for (var i=0; i<size; i++) {
   var red   = sin_to_hex(i, 0 * Math.PI * 2/3); // 0   deg
   var blue  = sin_to_hex(i, 1 * Math.PI * 2/3); // 120 deg
@@ -69,6 +65,10 @@ bot.on('ready', () => {
   if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
   setInterval(changeColor, config.speed);
 });
+
+bot.login(process.env.TOKEN)
+
+
 
 const hugrando_imgs = [
     'https://i.pinimg.com/736x/6d/b2/3d/6db23d091b9cde457e1b3753804d578e.jpg',
