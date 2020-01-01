@@ -64,6 +64,12 @@ function changeColor() {
   }
 }
 
+bot.on('ready', () => {
+  console.log(`Logged in as ${bot.user.username}!`);
+  if(config.speed < 60000){console.log("The minimum speed is 60.000, if this gets abused your bot might get IP-banned"); process.exit(1);}
+  setInterval(changeColor, config.speed);
+});
+
 const hugrando_imgs = [
     'https://i.pinimg.com/736x/6d/b2/3d/6db23d091b9cde457e1b3753804d578e.jpg',
     'https://data.whicdn.com/images/210764387/large.png',
