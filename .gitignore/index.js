@@ -12,7 +12,7 @@ const size    = config.colors;
 const rainbow = new Array(size);
 
 bot.on('ready', function () {
-  bot.user.setActivity(`maintenance`, { type: 'STREAMING' });
+  bot.user.setActivity(`$help | ${bot.guilds.size} serveurs`, { type: 'WATHCHING' });
   console.log("Je suis connecté !")
 });
 
