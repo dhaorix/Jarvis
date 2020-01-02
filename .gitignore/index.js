@@ -11,22 +11,11 @@ const config = require('./config.json');
 const size    = config.colors;
 const rainbow = new Array(size);
 
-try {
-function changing_status() {
-    const status = [
-      `$help | ${bot.guilds.size} serveurs`,
-      `$maj | Dernière nouveaté`,
-      `$help | ${bot.users.size} utilisateus`,
-    ];
-    const random = status[Math.floor(Math.random() * status.length)];
-    bot.user.setActivity(random, {
-        type: "WATCHING"
-    });
-}
-setInterval(changing_status, 20000);
-} catch (error) {
-console.log(error)
-}
+bot.on('ready', function () {
+  bot.user.setActivity(`maintenance`, { type: 'STREAMING' });
+  console.log("Je suis connecté !")
+});
+
 
 for (var i=0; i<size; i++) {
   var red   = sin_to_hex(i, 0 * Math.PI * 2/3); // 0   deg
