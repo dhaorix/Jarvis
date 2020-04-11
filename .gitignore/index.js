@@ -174,7 +174,7 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first(). === 'cancel') {
+        if (collected.first() === 'cancel') {
             return message.reply("Canceled.");
         }
         let sexe = collected.first();
@@ -251,10 +251,10 @@ client.on("message", async message => {
         time: 900000
         }).then(collected => {
         collected.delete(900000);
-        if (collected.first().content === 'cancel') {
+        if (collected.first() === 'cancel') {
             return message.reply("Canceled.");
         }
-        let faible = collected.first().content;
+        let faible = collected.first();
 
         message.reply("```Crée ton histoire (30min avant annulation)```").then(q => q.delete(2700000))
         message.channel.awaitMessages(filter, {
