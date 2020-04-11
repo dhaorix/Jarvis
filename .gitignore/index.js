@@ -122,7 +122,7 @@ client.on("message", async message => {
        let content;
         //if (message.author.id !== '178657593030475776') return;
     
-        const filter = m => m.author.id === message.author.id;
+      const filter = m => m.author.id === message.author.id;
         message.channel.send("Bonjour ! Le temps signifis le temps de ta reponse, si tu n'a rien a mettre met //")
         message.reply("```Choisi ton Nom (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -130,10 +130,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let name = collected.first();
+        let name = collected.first().content;
 
         message.reply("```Choisi ton Prénom (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -141,10 +141,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let username = collected.first();
+        let username = collected.first().content;
 
         message.reply("```Choisi ton age (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -152,10 +152,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let age = collected.first();
+        let age = collected.first().content;
 
         message.reply("```Choisi ta taille (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -163,10 +163,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let taille = collected.first();
+        let taille = collected.first().content;
 
         message.reply("```Choisi ton Sexe (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -174,10 +174,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let sexe = collected.first();
+        let sexe = collected.first().content;
 
         message.reply("```Choisi ta Race (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -185,10 +185,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let races = collected.first();
+        let races = collected.first().content;
 
         message.reply("```Choisi tes qualités (10min avant annulation)```").then(q => q.delete(900000))
         message.channel.awaitMessages(filter, {
@@ -196,10 +196,10 @@ client.on("message", async message => {
         time: 900000
         }).then(collected => {
         collected.delete(900000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let qualite = collected.first();
+        let qualite = collected.first().content;
 
         message.reply("```Choisi tes défauts (10min avant annulation)```").then(q => q.delete(900000))
         message.channel.awaitMessages(filter, {
@@ -207,10 +207,10 @@ client.on("message", async message => {
         time: 900000
         }).then(collected => {
         collected.delete(900000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let defaut = collected.first();
+        let defaut = collected.first().content;
 
         message.reply("```Choisi ton Pouvoir (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -218,10 +218,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let pouvoir = collected.first();
+        let pouvoir = collected.first().content;
 
         message.reply("```Choisi ton Arme préférer (5min avant annulation)```").then(q => q.delete(450000))
         message.channel.awaitMessages(filter, {
@@ -229,10 +229,10 @@ client.on("message", async message => {
         time: 450000
         }).then(collected => {
         collected.delete(450000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let arme = collected.first();
+        let arme = collected.first().content;
 
         message.reply("```Choisi ton Point fort (10min avant annulation)```").then(q => q.delete(900000))
         message.channel.awaitMessages(filter, {
@@ -240,10 +240,10 @@ client.on("message", async message => {
         time: 900000
         }).then(collected => {
         collected.delete(900000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let fort = collected.first();
+        let fort = collected.first().content;
 
         message.reply("```Choisi ton Point faible (10min avant annulation)```").then(q => q.delete(900000))
         message.channel.awaitMessages(filter, {
@@ -251,10 +251,10 @@ client.on("message", async message => {
         time: 900000
         }).then(collected => {
         collected.delete(900000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let faible = collected.first();
+        let faible = collected.first().content;
 
         message.reply("```Crée ton histoire (30min avant annulation)```").then(q => q.delete(2700000))
         message.channel.awaitMessages(filter, {
@@ -262,10 +262,10 @@ client.on("message", async message => {
         time: 2700000
         }).then(collected => {
         collected.delete(2700000);
-        if (collected.first() === 'cancel') {
+        if (collected.first().content === 'cancel') {
             return message.reply("Canceled.");
         }
-        let histoire = collected.first();
+        let histoire = collected.first().content;
 
 
         message.reply("Fiche envoyée au staff, Merci d'attendre la confirmation ;)")
