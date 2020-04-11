@@ -13,45 +13,10 @@ client.login(process.env.TOKEN)
 
 
 client.on("message", async message => {
-
-     if (command === "clear") {
-  
-        if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
-          message.channel.sendMessage("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
-          console.log("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
-          return;
-        } else if (!message.channel.permissionsFor(bot.user).hasPermission("MANAGE_MESSAGES")) {
-          message.channel.sendMessage("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
-          console.log("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
-          return;
-        }
-  
-        // Only delete messages if the channel type is TextChannel
-        // DO NOT delete messages in DM Channel or Group DM Channel
-        if (message.channel.type == 'text') {
-          message.channel.fetchMessages()
-            .then(messages => {
-              message.channel.bulkDelete(messages);
-              messagesDeleted = messages.array().length; // number of messages deleted
-  
-              // Logging the number of messages deleted on both the channel and console.
-              message.channel.sendMessage("Messages supprimer: "+messagesDeleted);
-            })
-            .catch(err => {
-              console.log('Error while doing Bulk Delete');
-              console.log(err);
-            });
-        }
-      }
-
     
     if(message.content.indexOf(prefix) !== 0) return;
-  
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-  
     const command = args.shift().toLowerCase();
-  
-  
   
     if(command === "say" ){
         let text = args.join(" ");
