@@ -10,7 +10,7 @@ client.on( 'ready', function () {
 });
 
 client.login("NTMzNzUyMTM3MzAyNDA5MjI2.XgkMbw.Mc_Spla_nQSb8e3uoup-HOxwyQU")
-//client.login("Mjc4NjQ3MzM3MTIxODczOTMw.XcWZBg.8_JnACh5Tt0L0CQ3brRmDMwSkz8")
+
 
 
 client.on("message", async message => {
