@@ -9,7 +9,7 @@ client.on( 'ready', function () {
 
 });
 
-client.login("NTMzNzUyMTM3MzAyNDA5MjI2.XgkMbw.Mc_Spla_nQSb8e3uoup-HOxwyQU")
+client.login(process.env.TOKEN)
 
 
 
