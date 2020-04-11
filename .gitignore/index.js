@@ -11,21 +11,40 @@ client.on( 'ready', function () {
 
 client.login(process.env.TOKEN)
 
-client.on('message', function(message) {
-    if (message.content == "/clear") {
-        if (message.member.hasPermission("MANAGE_MESSAGES")) {
-            message.channel.fetchMessages()
-               .then(function(list){
-                    message.channel.bulkDelete(list);
-                }, function(err){message.channel.send("ERROR: ERROR CLEARING CHANNEL.")})                        
-        }
-    }
-
-});
 
 client.on("message", async message => {
 
+     if (command === "clear") {
+  
+        if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
+          message.channel.sendMessage("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
+          console.log("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
+          return;
+        } else if (!message.channel.permissionsFor(bot.user).hasPermission("MANAGE_MESSAGES")) {
+          message.channel.sendMessage("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
+          console.log("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
+          return;
+        }
+  
+        // Only delete messages if the channel type is TextChannel
+        // DO NOT delete messages in DM Channel or Group DM Channel
+        if (message.channel.type == 'text') {
+          message.channel.fetchMessages()
+            .then(messages => {
+              message.channel.bulkDelete(messages);
+              messagesDeleted = messages.array().length; // number of messages deleted
+  
+              // Logging the number of messages deleted on both the channel and console.
+              message.channel.sendMessage("Messages supprimer: "+messagesDeleted);
+            })
+            .catch(err => {
+              console.log('Error while doing Bulk Delete');
+              console.log(err);
+            });
+        }
+      }
 
+    
     if(message.content.indexOf(prefix) !== 0) return;
   
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
@@ -127,7 +146,7 @@ client.on("message", async message => {
         .setColor('#336bff')
         .setTitle("Help Jarvis **V2.0**")
         .setDescription("----------------------")
-        .addField("Command RP :", "``/createfiche`` ; ``/say`` ; ``/maj`` ; ``/def-on`` ; ``/def-off`` ; ``/soin`` ; ``/make<obj>``")
+        .addField("Command RP :", "``/clear`` ; ``/createfiche`` ; ``/say`` ; ``/maj`` ; ``/def-on`` ; ``/def-off`` ; ``/soin`` ; ``/make<obj>``")
         .setTimestamp()
         message.delete().catch(O_o=>{});
         message.channel.send(embed)
