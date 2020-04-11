@@ -119,7 +119,7 @@ client.on("message", async message => {
 
     if(command === "createfiche") { 
         await message.delete();
-       
+       let content;
         //if (message.author.id !== '178657593030475776') return;
     
         const filter = m => m.author.id === message.author.id;
