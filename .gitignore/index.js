@@ -25,28 +25,36 @@ client.on("message", async message => {
     }
 
     
-
-    if(command === "def-on"){
-        message.delete();
-        message.channel.send("``Auto-défence de la base activer (activation des canon et du bouclier)``")
+    if(command === "crea") {
+        await message.delete();
+      
+    
+        const filter = m => m.author.id === message.author.id;
+          message.channel.send("Bonjour ! Le temps signifis le temps de ta reponse, si tu n'a rien a mettre met //")
+          message.reply("```Choisi ton Nom (5min avant annulation)```").then(q => q.delete(450000))
+          message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 450000
+          }).then(collected => {
+          collected.delete(450000);
+          if (collected.first().content === 'cancel') {
+              return message.reply("Canceled.");
+          }
+          let name = collected.first().content;
+  
+          message.reply("```Choisi ton Prénom (5min avant annulation)```").then(q => q.delete(450000))
+          message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 450000
+          }).then(collected => {
+          collected.delete(450000);
+          if (collected.first().content === 'cancel') {
+              return message.reply("Canceled.");
+          }
+          let username = collected.first().content;
+        })})
     }
-
-    if(command === "def-off"){
-        message.delete();
-        message.channel.send(":luxgif03:")
-    }
-
-
-    if(command === "soin"){
-        message.delete();
-        if(message.mentions.members.size == 1) {
-
-            let perso = message.mentions.users.first().username;
-
-            message.channel.send(`**🏢Soin médical en cours pour : ${perso}**`)
-
-        }
-    }
+    
     if(command === "maj"){
         message.delete();
         message.channel.send("```Mise a jour en cours !```").then(message => 
